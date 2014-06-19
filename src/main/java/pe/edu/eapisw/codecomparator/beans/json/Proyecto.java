@@ -1,12 +1,15 @@
-package pe.edu.eapisw.codecomparator.beans;
+package pe.edu.eapisw.codecomparator.beans.json;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Paquete implements Serializable {
+/**
+ * Clase que almacenara el contenido del proyecto fisico cargado al servidor
+ * */
+public class Proyecto implements Serializable {
 
-	private static final long serialVersionUID = -4843115943266287488L;
+	private static final long serialVersionUID = -9104261263964389144L;
 	private String nombre;
 	private Collection<Codigo> codigos = new ArrayList<Codigo>();
 	private Collection<Paquete> paquetes = new ArrayList<Paquete>();
@@ -37,11 +40,9 @@ public class Paquete implements Serializable {
 
 	@Override
 	public String toString() {
-		return "\nPaquete : (nombre : "
-				+ nombre
-				+ ((codigos.isEmpty()) ? "" : ", C\u00f3digos<" + codigos.size() + "> : "
-						+ codigos)
-				+ ((paquetes.isEmpty()) ? "" : ", Paquetes<" + paquetes.size()
-						+ "> : \n" + paquetes) + " )";
+		return "Proyecto : [nombre : " + nombre
+				+ ((codigos.isEmpty()) ? "" : "\n\tC\u00f3digos : " + codigos)
+				+ ((paquetes.isEmpty()) ? "" : "\n\tPaquetes : " + paquetes)
+				+ " ]";
 	}
 }

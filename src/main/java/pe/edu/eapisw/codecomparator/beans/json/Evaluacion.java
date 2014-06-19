@@ -1,18 +1,29 @@
-package pe.edu.eapisw.codecomparator.beans;
+package pe.edu.eapisw.codecomparator.beans.json;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import pe.edu.eapisw.codecomparator.beans.model.Curso;
+
 public class Evaluacion implements Serializable {
 
 	private static final long serialVersionUID = 3793765939640816920L;
+	private Integer evaluacionId;
 	private String descripcion;
 	private Date horaInicio;
 	private Date horaFin;
 	private Date fechaRegistro;
 	private Curso curso;
 	private Collection<Posicion> matriz;
+
+	public Integer getEvaluacionId() {
+		return evaluacionId;
+	}
+
+	public void setEvaluacionId(Integer evaluacionId) {
+		this.evaluacionId = evaluacionId;
+	}
 
 	public String getDescripcion() {
 		return descripcion;

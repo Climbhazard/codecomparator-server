@@ -1,4 +1,5 @@
-package pe.edu.eapisw.codecomparator.beans;
+package pe.edu.eapisw.codecomparator.beans.model;
+
 
 public class Docente extends Usuario {
 

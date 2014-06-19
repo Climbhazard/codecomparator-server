@@ -1,6 +1,8 @@
-package pe.edu.eapisw.codecomparator.beans;
+package pe.edu.eapisw.codecomparator.beans.json;
 
 import java.io.Serializable;
+
+import pe.edu.eapisw.codecomparator.beans.model.Alumno;
 
 public class Posicion implements Serializable {
 

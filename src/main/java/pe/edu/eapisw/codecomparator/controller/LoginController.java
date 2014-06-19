@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pe.edu.eapisw.codecomparator.beans.Usuario;
+import pe.edu.eapisw.codecomparator.beans.model.Usuario;
 import pe.edu.eapisw.codecomparator.service.UserService;
 
 @Controller

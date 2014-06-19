@@ -1,4 +1,4 @@
-package pe.edu.eapisw.codecomparator.beans;
+package pe.edu.eapisw.codecomparator.beans.json;
 
 //import java.io.File;
 import java.io.Serializable;
