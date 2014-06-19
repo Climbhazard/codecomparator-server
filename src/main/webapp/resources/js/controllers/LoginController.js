@@ -25,5 +25,5 @@ var LoginController = function($scope, $http) {
 	 * $scope.fetchCarsList(); }); };
 	 */
 
-	$scope.fetchUser();
+	$scope.fetchUsuario();
 };

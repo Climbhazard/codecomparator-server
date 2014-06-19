@@ -20,4 +20,9 @@ public class LoginController {
 		System.out.println("LoginController.getUsuario()");
 		return usuarioService.getUsuario();
 	}
+
+	@RequestMapping("/layout")
+	public String getLayout() {
+		return "login/layout";
+	}
 }
