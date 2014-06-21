@@ -1,6 +1,8 @@
-package pe.edu.eapisw.codecomparator.persistence;
+package pe.edu.eapisw.codecomparator.persistence.impl;
 
 import java.util.Locale;
+
+import pe.edu.eapisw.codecomparator.persistence.DropboxUploader;
 
 import com.dropbox.core.DbxAuthInfo;
 import com.dropbox.core.DbxClient;
