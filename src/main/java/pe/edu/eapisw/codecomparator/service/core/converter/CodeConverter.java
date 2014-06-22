@@ -1,4 +1,4 @@
-package pe.edu.eapisw.codecomparator.core.converter;
+package pe.edu.eapisw.codecomparator.service.core.converter;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;

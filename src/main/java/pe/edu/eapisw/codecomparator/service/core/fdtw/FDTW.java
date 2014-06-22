@@ -1,4 +1,4 @@
-package pe.edu.eapisw.codecomparator.core.fdtw;
+package pe.edu.eapisw.codecomparator.service.core.fdtw;
 
 import java.io.File;
 import java.io.FileWriter;
