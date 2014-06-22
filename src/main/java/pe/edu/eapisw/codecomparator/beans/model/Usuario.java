@@ -24,4 +24,16 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
+	@Override
+	public boolean equals(Object anotherObject) {
+		if (anotherObject instanceof Usuario) {
+			if (((Usuario) anotherObject).getUsuario().equals(usuario)) {
+				if (((Usuario) anotherObject).getPassword().equals(password)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 }

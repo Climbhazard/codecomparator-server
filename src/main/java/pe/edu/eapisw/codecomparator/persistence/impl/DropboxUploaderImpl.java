@@ -38,7 +38,7 @@ public class DropboxUploaderImpl implements DropboxUploader {
 		String targetPath = destFilename;
 		try {
 			dbxClient = createDbxClient(authTokenFile);
-			/* tqtqtqbrau u-u */dbxClient.uploadFile(targetPath,
+			dbxClient.uploadFile(targetPath,
 					DbxWriteMode.add(), uploadFile.length(), uploadFIS);
 		}
 
