@@ -4,21 +4,37 @@
 <meta charset="utf-8">
 <title>Codecomparator</title>
 <link rel="stylesheet" href="resources/css/app.css" />
-<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+<link rel="stylesheet" media="screen" href="resources/css/docs.css">
+<link rel="stylesheet" media="screen" href="resources/css/pygments-manni.css">
+<link rel="stylesheet" media="screen" href="resources/css/codecomparator.css">
+
+
 </head>
 <body>
 	<div>
-		<h1>Hola desde el index.html</h1>
-		<hr class="" />
+		<!--<h1>Hola desde el index.html</h1>
+		<hr class="" />-->
+
 		<div ng-view></div>
 	</div>
+
+
+    <script type="text/javascript" src="resources/js/lib/jquery.js"></script>
+    <script type="text/javascript" src="resources/js/lib/bootstrap.js"></script>
+    <script type="text/javascript" src="resources/js/lib/jquery.validate.js"></script>
+    <script type="text/javascript" src="resources/js/lib/codecomparator.js"></script>    
+
 	<script src="resources/js/lib/angular.js"></script>
 	<script src="resources/js/app/app.js"></script>
 	<script src="resources/js/app/services.js"></script>
-	<script src="resources/js/app/controllers/LoginController.js"></script>
-	<!-- 	<script src="resources/js/controllers/CarController.js"></script> -->
-	<!-- 	<script src="resources/js/controllers/TrainController.js"></script> -->
+	<script src="resources/js/app/controllers/LoginController.js"></script>	
+	<script src="resources/js/app/controllers/AccountController.js"></script>	
+	<script src="resources/js/app/controllers/InicioController.js"></script>
 	<script src="resources/js/app/filters.js"></script>
 	<script src="resources/js/app/directives.js"></script>
+	<!-- <script src="resources/js/app/main.js"></script>-->
+
+
 </body>
 </html>

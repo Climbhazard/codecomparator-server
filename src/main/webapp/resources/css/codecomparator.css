@@ -24,6 +24,10 @@ font-size: 17px;
     margin-top: 2%;
     display: block;
 }
+.form-size{
+	width: 49%;
+    margin-left: 27%;
+}
 
 .hour_posi{
     margin-left: 13%;
