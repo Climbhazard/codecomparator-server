@@ -7,6 +7,8 @@ target/
 #IntellijDEA
 .idea/*
 *.iml
-.bowerrc
-public/bower_components/*
+*/.bowerrc
+*/public/bower_components/*
 node_modules/*
+bower_components/*/*
+!bower_components/*/.bower.json
