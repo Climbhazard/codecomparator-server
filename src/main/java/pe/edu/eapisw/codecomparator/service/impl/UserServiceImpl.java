@@ -16,4 +16,10 @@ public class UserServiceImpl implements UserService {
 		return usuario;
 	}
 
+	@Override
+	public Usuario login(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
