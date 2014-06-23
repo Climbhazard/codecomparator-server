@@ -4,7 +4,37 @@ import java.io.IOException;
 
 public interface DropboxUploader {
 
+	/**
+	 * Envía el contenido de <code>srcFileName</code> a Dropbox según la ruta
+	 * definida en <code>destFilename</code>.
+	 * 
+	 * @param authTokenFile
+	 *            archivo que contiene el token de acceso al repositorio
+	 *            Dropbox.
+	 * @param srcFilename
+	 * @param destFilename
+	 *            ruta que puede crear carpetas, pero necesariamente describe a
+	 *            un archivo de destino.<br/>
+	 *            ie: <i>/codecomparator-server/another-directory/file.json</i>
+	 * @throws IOException
+	 */
 	public void upload(String authTokenFile, String srcFilename,
-			String destFilename) throws IOException;
+			String destFilename);
 
+	/**
+	 * Descarga el contenido de <code>srcFilename</code> a un archivo temporal.
+	 * 
+	 * @param authTokenFile
+	 *            archivo que contiene el token de acceso al repositorio
+	 *            Dropbox.
+	 * @param srcFilename
+	 *            ruta del archivo almacenado en
+	 *            <code>codecomparator-server</code>.
+	 * @param destFilenameTemp
+	 *            localización temporal del contenido a descagar del
+	 *            repositorio.
+	 * @return contenido de <code>srcFilename</code>.
+	 */
+	public String download(String authTokenFile, String srcFilename,
+			String destFilenameTemp);
 }
