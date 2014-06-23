@@ -99,8 +99,8 @@ public class DropboxUploaderImpl implements DropboxUploader {
 			while ((line = reader.readLine()) != null) {
 				content += line + "\n";
 			}
-			fileTemp.delete();
 			fos.close();
+			fileTemp.delete();
 		} catch (DbxException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

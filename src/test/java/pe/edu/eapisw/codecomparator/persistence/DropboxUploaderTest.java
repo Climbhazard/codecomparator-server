@@ -38,7 +38,8 @@ public class DropboxUploaderTest {
 
 	@Test
 	public void foo() throws IOException {
-		String temp = "src/test/java/pe/edu/eapisw/codecomparator/persistence/hola";
+		String temp = "src/test/java/pe/edu/eapisw/codecomparator/persistence/"
+				+ String.valueOf(Math.random());
 		java.io.File file = new java.io.File(temp);
 		System.out.println(file.exists());
 		file.createNewFile();
