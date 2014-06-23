@@ -1,12 +1,11 @@
 .settings/
 target/
-.idea/
 
 .classpath
 .project
 
 #IntellijDEA
-#.idea/
+.idea/
 *.iml
 */.bowerrc
 */public/bower_components/*
