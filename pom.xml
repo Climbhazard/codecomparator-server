@@ -104,6 +104,11 @@
 			<artifactId>dropbox-core-sdk</artifactId>
 			<version>[1.7,1.8)</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>

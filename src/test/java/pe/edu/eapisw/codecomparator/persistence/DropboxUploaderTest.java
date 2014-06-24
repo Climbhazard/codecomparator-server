@@ -7,33 +7,37 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pe.edu.eapisw.codecomparator.persistence.impl.DropboxUploaderImpl;
+import pe.edu.eapisw.codecomparator.persistence.impl.DropboxClientImpl;
 
 public class DropboxUploaderTest {
 
-	private DropboxUploader dropboxUploader;
-	private String authTokenFile;
+	private DropboxClient dropboxUploader;
+	private String authToken;
 
 	@Before
 	public void setUp() {
-		dropboxUploader = new DropboxUploaderImpl();
-		authTokenFile = "src/test/java/pe/edu/eapisw/codecomparator/persistence/auth-file-output";
+		dropboxUploader = new DropboxClientImpl();
+		authToken = "Ns9nnNqlFpIAAAAAAAAABan7kFFoWTdnaddpwnxh_8DMeMHrBX1PORlMrPs2qGo6";
 	}
 
 	@Test
-	public void testUpload() {
-		String srcFilename = "src/test/java/pe/edu/eapisw/codecomparator/persistence/upload-file-src";
-		String destFilename = "/test/testUpload";
-		dropboxUploader.upload(authTokenFile, srcFilename, destFilename);
+	public void testUploadAnEvaluacion() {
+		String srcFilename = "src/test/java/pe/edu/eapisw/codecomparator/persistence/Evaluacion";
+		String docenteId = "/D010203";
+		String nombreCurso = "/Algorítmica II";
+		String evaluacionId = "/" + String.valueOf(1);
+		String destFilename = docenteId + nombreCurso + evaluacionId;
+		dropboxUploader.upload(authToken, srcFilename, destFilename);
 	}
 
 	@Test
-	public void testDownload() {
-		String srcFilename = "/test/testUpload";
-		String destFilenameTemp = "src/test/java/pe/edu/eapisw/codecomparator/persistence/";
+	public void testDownloadAnEvaluacion() {
+		String docenteId = "/D010203";
+		String nombreCurso = "/Algorítmica II";
+		String evaluacionId = "/" + String.valueOf(1);
+		String srcFilename = docenteId + nombreCurso + evaluacionId;
 		System.out.println("&"
-				+ dropboxUploader.download(authTokenFile, srcFilename,
-						destFilenameTemp) + "&");
+				+ dropboxUploader.download(authToken, srcFilename) + "&");
 	}
 
 	@Test
@@ -46,6 +50,12 @@ public class DropboxUploaderTest {
 		System.out.println(file.exists());
 		file.delete();
 		System.out.println(file.exists());
+	}
+
+	@Test
+	public void foo2() {
+		System.out.println(System.getProperty("java.io.tmpdir"));
+		System.out.println(System.getProperty("file.separator"));
 	}
 
 }

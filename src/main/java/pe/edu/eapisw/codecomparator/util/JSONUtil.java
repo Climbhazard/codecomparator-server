@@ -1,4 +1,4 @@
-package pe.edu.eapisw.codecomparator.service.impl;
+package pe.edu.eapisw.codecomparator.util;
 
 import java.io.IOException;
 
@@ -7,13 +7,10 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import pe.edu.eapisw.codecomparator.service.JSONService;
-
-public class JSONServiceImpl implements JSONService {
+public class JSONUtil {
 
 	private ObjectMapper objectMapper;
 
-	@Override
 	public String toJson(Object object) {
 		String json = "";
 		objectMapper = new ObjectMapper();
@@ -30,7 +27,6 @@ public class JSONServiceImpl implements JSONService {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@Override
 	public Object toObject(String json, Class clazz) {
 		objectMapper = new ObjectMapper();
 		try {

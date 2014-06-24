@@ -9,17 +9,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Locale;
 
-import pe.edu.eapisw.codecomparator.persistence.DropboxUploader;
+import pe.edu.eapisw.codecomparator.persistence.DropboxClient;
 
-import com.dropbox.core.DbxAuthInfo;
 import com.dropbox.core.DbxClient;
 import com.dropbox.core.DbxException;
+import com.dropbox.core.DbxHost;
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.DbxWriteMode;
-import com.dropbox.core.json.JsonReader;
 import com.dropbox.core.json.JsonReader.FileLoadException;
 
-public class DropboxUploaderImpl implements DropboxUploader {
+public class DropboxClientImpl implements DropboxClient {
 
 	// private DbxClient dbxClient;
 
@@ -62,38 +61,31 @@ public class DropboxUploaderImpl implements DropboxUploader {
 		}
 	}
 
-	private DbxClient createDbxClient(String authTokenFile)
+	private DbxClient createDbxClient(String authToken)
 			throws FileLoadException {
-		DbxAuthInfo authInfo;
-		try {
-
-			authInfo = DbxAuthInfo.Reader.readFromFile(authTokenFile);
-		} catch (JsonReader.FileLoadException ex) {
-			System.err
-					.println("Error in DbxUploader constructor: problem loading <auth-file>: "
-							+ ex.getMessage());
-			throw ex;
-		}
 
 		// Create a DbxClient, which is what you use to make API calls.
 		String userLocale = Locale.getDefault().toString();
 		DbxRequestConfig requestConfig = new DbxRequestConfig("DbxUploader",
 				userLocale);
-		return new DbxClient(requestConfig, authInfo.accessToken, authInfo.host);
+		DbxHost host = new DbxHost("api.dropbox.com",
+				"api-content.dropbox.com", "www.dropbox.com");
+		return new DbxClient(requestConfig, authToken, host);
 	}
 
 	@SuppressWarnings("resource")
 	@Override
-	public String download(String authTokenFile, String srcFilename,
-			String destFilenameTemp) {
-		String temp = destFilenameTemp + String.valueOf(Math.random());
+	public String download(String authToken, String srcFilename) {
+		String temp = System.getProperty("java.io.tmpdir")
+				+ System.getProperty("file.separator")
+				+ String.valueOf(Math.random());
 		String content = "";
 		FileOutputStream fos;
 		try {
 			File fileTemp = new File(temp);
 			fileTemp.createNewFile();
 			fos = new FileOutputStream(temp);
-			createDbxClient(authTokenFile).getFile(srcFilename, null, fos);
+			createDbxClient(authToken).getFile(srcFilename, null, fos);
 			BufferedReader reader = new BufferedReader(new FileReader(temp));
 			String line;
 			while ((line = reader.readLine()) != null) {

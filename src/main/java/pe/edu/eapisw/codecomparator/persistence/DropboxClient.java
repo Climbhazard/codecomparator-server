@@ -2,7 +2,7 @@ package pe.edu.eapisw.codecomparator.persistence;
 
 import java.io.IOException;
 
-public interface DropboxUploader {
+public interface DropboxClient {
 
 	/**
 	 * Envía el contenido de <code>srcFileName</code> a Dropbox según la ruta
@@ -35,6 +35,5 @@ public interface DropboxUploader {
 	 *            repositorio.
 	 * @return contenido de <code>srcFilename</code>.
 	 */
-	public String download(String authTokenFile, String srcFilename,
-			String destFilenameTemp);
+	public String download(String authTokenFile, String srcFilename);
 }
