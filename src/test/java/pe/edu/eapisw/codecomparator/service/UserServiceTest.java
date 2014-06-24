@@ -11,8 +11,6 @@ import pe.edu.eapisw.codecomparator.beans.model.Usuario;
 
 public class UserServiceTest {
 
-	// private UserService userService;
-
 	@Before
 	public void setUp() {
 		// userService = new UserServiceImpl();
@@ -26,8 +24,8 @@ public class UserServiceTest {
 		usuarioExpected.setPassword("123456");
 
 		UserService userService = mock(UserService.class);
-		when(userService.login(usuarioExpected)).thenReturn(usuarioExpected);
-		Usuario usuarioActual = userService.login(usuarioExpected);
+		when(userService.loginDocente(usuarioExpected)).thenReturn(usuarioExpected);
+		Usuario usuarioActual = userService.loginDocente(usuarioExpected);
 		assertEquals(usuarioExpected.getUsuario(), usuarioActual.getUsuario());
 		assertEquals(usuarioExpected.getPassword(), usuarioActual.getPassword());
 

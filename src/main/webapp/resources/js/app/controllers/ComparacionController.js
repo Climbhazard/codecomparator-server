@@ -41,13 +41,28 @@ var ComparacionController = function($scope, $http) {
 	$scope.fetchEvaluaciones = function() {
 		$http.get('comparison/evaluaciones.json').success(
 				function(evaluaciones) {
+					alert(evaluaciones.length);
+					console.log(evaluaciones);
 					$scope.evaluaciones = evaluaciones;
 				});
 	};
 
 	$scope.comparar = function() {
-		$http.post('comparison/elegidos', $scope.elegidos).success(function() {
+		/*$http.post('comparison/elegidos', $scope.elegidos).success(function() {
 			alert('comparación realizada');
+		});
+		alert('comparación realizada');
+		console.log("elegidos");
+		console.log($scope.elegidos);*/
+		console.log($scope.elegidos);
+		$scope.contenedorelegidos = new Object();
+		$scope.contenedorelegidos.posiciones = $scope.elegidos;
+
+		console.log($scope.contenedorelegidos);
+		$http.post('comparison/comparar', $scope.contenedorelegidos).success(function() {
+			alert('comparación realizada');
+			
+			console.log($scope.contenedorelegidos);
 		});
 	};
 
