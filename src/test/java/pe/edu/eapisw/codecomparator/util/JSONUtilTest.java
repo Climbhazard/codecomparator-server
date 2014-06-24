@@ -92,9 +92,15 @@ public class JSONUtilTest {
 		uno.setApellidoPaterno("Sánchez");
 		uno.setApellidoMaterno("Vinces");
 
+		Alumno tres = new Alumno();
+		tres.setAlumnoId("10200218");
+		tres.setNombre("María Alejandra");
+		tres.setApellidoPaterno("Gómez");
+		tres.setApellidoMaterno("Casani");
+
 		// poblaremos Codigo con datos reales
 		BufferedReader reader = new BufferedReader(new FileReader(
-				"src/test/java/pe/edu/eapisw/codecomparator/service/Foo"));
+				"src/test/java/pe/edu/eapisw/codecomparator/util/Foo"));
 		String linea;
 		String contenido = "";
 		while ((linea = reader.readLine()) != null) {
@@ -120,16 +126,25 @@ public class JSONUtilTest {
 		Posicion primero = new Posicion();
 		primero.setAlumno(uno);
 		primero.setProyecto(proyecto);
+
+		Posicion tercero = new Posicion();
+		tercero.setAlumno(tres);
+		tercero.setProyecto(proyecto);
 		Collection<Posicion> matriz = new ArrayList<Posicion>();
 		matriz.add(new Posicion());
 		matriz.add(primero);
 		matriz.add(new Posicion());
+		matriz.add(tercero);
+		matriz.add(new Posicion());
+		for (int i = 0; i < 15; i++) {
+			matriz.add(new Posicion());
+		}
 
 		Curso curso = new Curso();
 		curso.setCursoId(500);
 		curso.setDocentes(null);
 		curso.setGrupo(2);
-		curso.setNombre("Algorítmica 02");
+		curso.setNombre("Algorítmica II");
 
 		Evaluacion evaluacion = new Evaluacion();
 		evaluacion.setEvaluacionId(1);

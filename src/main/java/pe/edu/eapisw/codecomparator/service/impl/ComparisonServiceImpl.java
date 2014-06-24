@@ -46,11 +46,14 @@ public class ComparisonServiceImpl implements ComparisonService {
 		for (Evaluacion evaluacion : evs) {
 			nombreCurso = "/" + evaluacion.getCurso().getNombre();
 			evaluacionId = "/" + String.valueOf(evaluacion.getEvaluacionId());
-			srcFilename = docenteId + nombreCurso + evaluacionId;
+			srcFilename = docenteId + nombreCurso + evaluacionId + ".json";
 
-			this.evaluaciones.add((Evaluacion) jsonUtil.toObject(
-					dropboxUploader.download("Ns9nnNqlFpIAAAAAAAAABan7kFFoWTdnaddpwnxh_8DMeMHrBX1PORlMrPs2qGo6",
-							srcFilename), Evaluacion.class));
+			this.evaluaciones
+					.add((Evaluacion) jsonUtil.toObject(
+							dropboxUploader
+									.download(
+											"Ns9nnNqlFpIAAAAAAAAABan7kFFoWTdnaddpwnxh_8DMeMHrBX1PORlMrPs2qGo6",
+											srcFilename), Evaluacion.class));
 		}
 
 		return evaluaciones;

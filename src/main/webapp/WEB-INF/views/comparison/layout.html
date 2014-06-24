@@ -25,11 +25,14 @@
 			<div class="col-md-6">
 				<label class="col-md-4 control-label">Tipo de Comparación</label>
 				<div class="col-md-8">
-					<select class="form-control">
+					<select ng-model="comparacionSeleccionada"
+						ng-options="tipo.llave for tipo in tiposComparacion"
+						class="form-control"></select>
+					<!-- <select class="form-control">
 						<option>Comparación de adyacencia</option>
 						<option>Comparación de 1 con varios</option>
 
-					</select>
+					</select> -->
 				</div>
 			</div>
 		</div>
@@ -39,85 +42,124 @@
 			<div class="col-md-8">
 				<br>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-3" ng-model="i">
+						<button id="i" class="btn btn-primary header_botom active"
+							title="{{i.alumno.nombre}} {{i.alumno.apellidoPaterno}} {{i.alumno.apellidoMaterno}}"
+							ng-click="agregarElegido(i)">{{i.alumno.alumnoId}}</button>
+					</div>
+					<div class="col-md-3" ng-model="ii">
+						<button id="ii" class="btn btn-primary header_botom active"
+							title="{{ii.alumno.nombre}} {{ii.alumno.apellidoPaterno}} {{ii.alumno.apellidoMaterno}}"
+							ng-click="agregarElegido(ii)">{{ii.alumno.alumnoId}}</button>
+					</div>
+					<div class="col-md-3" ng-model="iii"
+						title="{{iii.alumno.nombre}} {{iii.alumno.apellidoPaterno}} {{iii.alumno.apellidoMaterno}}">
 						<button class="btn btn-primary header_botom active"
-							data-toggle="modal" data-target="#myModal">LIBRE</button>
+							ng-click="agregarElegido(iii)">{{iii.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="iv"
+						title="{{iv.alumno.nombre}} {{iv.alumno.apellidoPaterno}} {{iv.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(iv)">{{iv.alumno.alumnoId}}</button>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="v"
+						title="{{v.alumno.nombre}} {{v.alumno.apellidoPaterno}} {{v.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(v)">{{v.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="vi"
+						title="{{vi.alumno.nombre}} {{vi.alumno.apellidoPaterno}} {{vi.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(vi)">{{vi.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="vii"
+						title="{{vii.alumno.nombre}} {{vii.alumno.apellidoPaterno}} {{vii.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(vii)">{{vii.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="viii"
+						title="{{viii.alumno.nombre}} {{viii.alumno.apellidoPaterno}} {{viii.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(viii)">{{viii.alumno.alumnoId}}</button>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="ix"
+						title="{{ix.alumno.nombre}} {{ix.alumno.apellidoPaterno}} {{ix.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(ix)">{{ix.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="x"
+						title="{{x.alumno.nombre}} {{x.alumno.apellidoPaterno}} {{x.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(x)">{{x.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="xi"
+						title="{{xi.alumno.nombre}} {{xi.alumno.apellidoPaterno}} {{xi.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xi)">{{xi.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="xii"
+						title="{{xii.alumno.nombre}} {{xii.alumno.apellidoPaterno}} {{xii.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xii)">{{xii.alumno.alumnoId}}</button>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="xiii"
+						title="{{xiii.alumno.nombre}} {{xiii.alumno.apellidoPaterno}} {{xiii.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xiii)">{{xiii.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="xiv"
+						title="{{xiv.alumno.nombre}} {{xiv.alumno.apellidoPaterno}} {{xiv.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xiv)">{{xiv.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="xv"
+						title="{{xv.alumno.nombre}} {{xv.alumno.apellidoPaterno}} {{xv.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xv)">{{xv.alumno.alumnoId}}</button>
 					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">LIBRE</button>
+					<div class="col-md-3" ng-model="xvi"
+						title="{{xvi.alumno.nombre}} {{xvi.alumno.apellidoPaterno}} {{xvi.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xvi)">{{xvi.alumno.alumnoId}}</button>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-3" ng-model="xvii"
+						title="{{xvii.alumno.nombre}} {{xvii.alumno.apellidoPaterno}} {{xvii.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xvii)">{{xvii.alumno.alumnoId}}</button>
+					</div>
+					<div class="col-md-3" ng-model="xviii"
+						title="{{xviii.alumno.nombre}} {{xviii.alumno.apellidoPaterno}} {{xviii.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xviii)">{{xviii.alumno.alumnoId}}</button>
+					</div>
+					<div class="col-md-3" ng-model="xix"
+						title="{{xix.alumno.nombre}} {{xix.alumno.apellidoPaterno}} {{xix.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xix)">{{xix.alumno.alumnoId}}</button>
+					</div>
+					<div class="col-md-3" ng-model="xx"
+						title="{{xx.alumno.nombre}} {{xx.alumno.apellidoPaterno}} {{xx.alumno.apellidoMaterno}}">
+						<button class="btn btn-primary header_botom active"
+							ng-click="agregarElegido(xx)">{{xx.alumno.alumnoId}}</button>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 
 				<button type="button" class="btn btn-default"
-					style="margin-top: 13%; margin-left: 28%;">
+					style="margin-top: 13%; margin-left: 28%;" ng-click="comparar()">
 					<span class="glyphicon glyphicon-ok-sign"></span> Comparar
 				</button>
 				<button type="button" class="btn btn-success"

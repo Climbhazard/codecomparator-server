@@ -26,7 +26,7 @@ public class DropboxUploaderTest {
 		String docenteId = "/D010203";
 		String nombreCurso = "/Algorítmica II";
 		String evaluacionId = "/" + String.valueOf(1);
-		String destFilename = docenteId + nombreCurso + evaluacionId;
+		String destFilename = docenteId + nombreCurso + evaluacionId + ".json";
 		dropboxUploader.upload(authToken, srcFilename, destFilename);
 	}
 

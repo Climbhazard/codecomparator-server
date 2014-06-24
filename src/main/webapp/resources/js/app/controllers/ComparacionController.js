@@ -7,6 +7,15 @@
  */
 var ComparacionController = function($scope, $http) {
 	$scope.evaluacionSeleccionada = {};
+	$scope.tiposComparacion = [ {
+		llave : 'Comparación de adyacencia',
+		valor : 1
+	}, {
+		llave : 'Comparación de 1 con varios',
+		valor : 2
+	} ];
+	// por defecto Comparación de adyacencia
+	$scope.comparacionSeleccionada = $scope.tiposComparacion[0];
 	$scope.i = {};
 	$scope.ii = {};
 	$scope.iii = {};
@@ -27,12 +36,19 @@ var ComparacionController = function($scope, $http) {
 	$scope.xviii = {};
 	$scope.xix = {};
 	$scope.xx = {};
+	$scope.elegidos = [];
 
 	$scope.fetchEvaluaciones = function() {
 		$http.get('comparison/evaluaciones.json').success(
 				function(evaluaciones) {
 					$scope.evaluaciones = evaluaciones;
 				});
+	};
+
+	$scope.comparar = function() {
+		$http.post('comparison/elegidos', $scope.elegidos).success(function() {
+			alert('comparación realizada');
+		});
 	};
 
 	$scope.formatearEvaluacion = function(evaluacion) {
@@ -46,9 +62,74 @@ var ComparacionController = function($scope, $http) {
 	};
 
 	$scope.poblarPosiciones = function(evaluacionSeleccionada) {
+		if (!evaluacionSeleccionada) {
+			$scope.borrarPosiciones();
+		}
+		var posiciones = evaluacionSeleccionada.matriz;
+		$scope.i = posiciones[0];
+		$scope.ii = posiciones[1];
+		$scope.iii = posiciones[2];
+		$scope.iv = posiciones[3];
+		$scope.v = posiciones[4];
+		$scope.vi = posiciones[5];
+		$scope.vii = posiciones[6];
+		$scope.viii = posiciones[7];
+		$scope.ix = posiciones[8];
+		$scope.x = posiciones[9];
+		$scope.xi = posiciones[10];
+		$scope.xii = posiciones[11];
+		$scope.xiii = posiciones[12];
+		$scope.xiv = posiciones[13];
+		$scope.xv = posiciones[14];
+		$scope.xvi = posiciones[15];
+		$scope.xvii = posiciones[16];
+		$scope.xviii = posiciones[17];
+		$scope.xix = posiciones[18];
+		$scope.xx = posiciones[19];
+		// alert($scope.ii.alumno.alumnoId);
+	};
+
+	$scope.agregarElegido = function(posicion) {
+		// salir si la posicion está vacía
+		if (posicion.alumno == null || posicion.proyecto == null) {
+			return;
+		}
+		// salir si la posicion ya está elegida
+		if ($scope.elegidos.indexOf(posicion) != -1) {
+			return;
+		}
+		var cuenta = $scope.elegidos.length;
+		if (cuenta == 5) {
+			alert('Puede seleccionar máximo 5 alumnos para comparar.');
+			return;
+		}
+		$scope.elegidos[cuenta] = posicion;
 	};
 
 	$scope.fetchEvaluaciones();
+
+	$scope.borrarPosiciones = function() {
+		$scope.i = {};
+		$scope.ii = {};
+		$scope.iii = {};
+		$scope.iv = {};
+		$scope.v = {};
+		$scope.vi = {};
+		$scope.vii = {};
+		$scope.viii = {};
+		$scope.ix = {};
+		$scope.x = {};
+		$scope.xi = {};
+		$scope.xii = {};
+		$scope.xiii = {};
+		$scope.xiv = {};
+		$scope.xv = {};
+		$scope.xvi = {};
+		$scope.xvii = {};
+		$scope.xviii = {};
+		$scope.xix = {};
+		$scope.xx = {};
+	};
 
 	/*
 	 * $scope.addNewCar = function(newCar) { $http.post('cars/addCar/' +
