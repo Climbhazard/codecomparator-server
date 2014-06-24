@@ -7,6 +7,7 @@
  */
 var InicioController = function($scope, $http) {
 	
+	$scope.state = 1;
 	console.log('inicio');
 	/*
 	 * $scope.addNewCar = function(newCar) { $http.post('cars/addCar/' +

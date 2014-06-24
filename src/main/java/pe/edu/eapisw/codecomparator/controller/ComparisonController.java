@@ -15,6 +15,7 @@ import pe.edu.eapisw.codecomparator.beans.json.Evaluacion;
 import pe.edu.eapisw.codecomparator.beans.json.Posicion;
 import pe.edu.eapisw.codecomparator.beans.json.Proyecto;
 import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;
+import pe.edu.eapisw.codecomparator.beans.model.ContainerResult;
 import pe.edu.eapisw.codecomparator.beans.model.ContenedorPosicion;
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.service.ComparisonService;
@@ -53,8 +54,10 @@ public class ComparisonController {
 	}
 	
 	@RequestMapping("/comparar")
-	public @ResponseBody void compararProyectos(
+	public @ResponseBody ContainerResult compararProyectos(
 			@RequestBody ContenedorPosicion contenedor) {
+		
+		ContainerResult containerResult = new ContainerResult();
 		
 		System.out.println(contenedor.getPosiciones().size());
 		
@@ -81,11 +84,14 @@ public class ComparisonController {
 				
 				
 			}
+			containerResult.setCharResults(containerCharResult);
+			return containerResult;
 			
 		}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	@RequestMapping("/layout")

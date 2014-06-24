@@ -17,7 +17,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
 
-                <a href="#" class="btn btn-danger" style="margin-top: 8px;">Iniciar Sesión</a>
+                <a href="" class="btn btn-danger" style="margin-top: 8px;" ng-click="loginDocente()">Iniciar Sesión</a>
 
             </ul>
 
@@ -36,7 +36,7 @@
         <div class="row">
             <div id="usuar" class="col-md-12 form-group">
                 <label>Usuario</label>
-                <input type="text" name="t_usuario" class="form-control" >
+                <input type="text" name="t_usuario" class="form-control" ng-model="user.username">
                 <span id="message_usuario" style="display:none;color:#b94a48;" ></span>
             </div>
 
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-md-12 form-group">
                 <label>Contraseña</label>
-                <input type="password" name="t_password" class="form-control">
+                <input type="password" name="t_password" class="form-control" ng-model="user.password">
             </div>
 
         </div>
@@ -52,7 +52,7 @@
 
         <hr>
         <div class="form-actions" style="text-align: center;">
-            <button class="btn btn-primary left" id="save_med">Iniciar Sesión</button>
+            <button class="btn btn-primary left" id="save_med" ng-click="loginDocente()">Iniciar Sesión</button>
             <br/>
             <a href="#/account">Crear cuenta</a>
             

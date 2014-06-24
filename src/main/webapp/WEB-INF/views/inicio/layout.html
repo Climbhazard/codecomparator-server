@@ -1,9 +1,5 @@
-<!-- <div>USUARIO :</div>
-<h2>{{user.usuario}}</h2>
-<br />
-<h3>{{user.password}}</h3>-->
-
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!-- cabecera user not logged -->
+<div ng-show="state==1" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,6 +20,38 @@
         </div><!--/.navbar-collapse -->
     </div>
 </div>
+
+
+<!-- cabecera user logged -->
+
+<!-- 
+<div ng-show="state==2" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CodeComparator</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <a href="#/login" class="btn btn-danger" style="margin-top: 8px;">Iniciar Sesión</a>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+-->
+
+
+
+<!-- fin de cabeceras -->
+
 
     <div id="carousel-example-captions" class="carousel slide carrusel-head" data-ride="carousel">
         <ol class="carousel-indicators">

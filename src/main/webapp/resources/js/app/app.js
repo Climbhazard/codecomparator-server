@@ -27,6 +27,11 @@ App.config([ '$routeProvider', function($routeProvider) {
         templateUrl : 'comparison/layout',
         controller : ComparacionController
     });
+
+    $routeProvider.when('/resultados', {
+        templateUrl : 'resultados/layout',
+        controller : ResultadosController
+    });
     
 	$routeProvider.otherwise({
 		redirectTo : '/inicio'

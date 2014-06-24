@@ -1,0 +1,78 @@
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/inicio">CodeComparator</a>
+        </div>
+        <div class="navbar-collapse collapse">
+             <ul class="nav navbar-nav navbar-right">
+          
+          <li class="dropdown">
+                  <a href="" id="perfil" class="dropdown-toggle" data-toggle="dropdown"><b class="caret">Fanny Sobero</b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/cambiarPass">Cambiar contraseña</a></li>
+                                
+                                <li><a href="#/login">Cerrar Sesión</a></li>
+                            </ul>
+            </li>
+         </ul>
+
+        </div><!--/.navbar-collapse -->
+    </div>
+</div>
+
+
+
+<div class="container">
+	<h1 class="page-header">Comparación de proyectos</h1>
+	<form class="form-horizontal" role="form">
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label class="col-md-4 control-label">Evaluación</label>
+				<div class="col-md-8">
+					<!-- <select class="form-control">
+						<option>09/05/14 Algoritmica 02 - Grupo 1:Punteros</option>
+						<option>09/05/14 Algoritmica 02 - Grupo 2:Punteros</option>
+						<option>18/05/14 Programacion 02 - Grupo 1:Listas</option>
+						<option>18/05/14 Programacion 01 - Grupo 3:Archivos</option>
+					</select> -->
+					<select ng-model="evaluacionSeleccionada"
+						ng-options="formatearEvaluacion(evaluacion) for evaluacion in evaluaciones"
+						ng-change="poblarPosiciones(evaluacionSeleccionada)"
+						class="form-control">
+						<option value="">Escoja una evaluación</option>
+					</select>
+
+				</div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col-md-6">
+				<label class="col-md-4 control-label">Tipo de Comparación</label>
+				<div class="col-md-8">
+					<select ng-model="comparacionSeleccionada"
+						ng-options="tipo.llave for tipo in tiposComparacion"
+						class="form-control"></select>
+					<!-- <select class="form-control">
+						<option>Comparación de adyacencia</option>
+						<option>Comparación de 1 con varios</option>
+
+					</select> -->
+				</div>
+			</div>
+		</div>
+		<br>
+		<!--<span style="color:red;">(Puede seleccionar maximo 5 alumnos para comparar)</span>-->
+		<div class="row highlight">
+			Resultados
+		
+		</div>
+	</form>
+
+</div>

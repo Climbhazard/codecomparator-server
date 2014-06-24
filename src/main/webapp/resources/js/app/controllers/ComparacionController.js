@@ -5,8 +5,12 @@
  * 
  * @constructor
  */
-var ComparacionController = function($scope, $http) {
+var ComparacionController = function($scope, $http, $location) {
+	
 	$scope.evaluacionSeleccionada = {};
+	$scope.state=1;
+	$scope.botonReporte = 0;
+	
 	$scope.tiposComparacion = [ {
 		llave : 'Comparación de adyacencia',
 		valor : 1
@@ -41,7 +45,6 @@ var ComparacionController = function($scope, $http) {
 	$scope.fetchEvaluaciones = function() {
 		$http.get('comparison/evaluaciones.json').success(
 				function(evaluaciones) {
-					alert(evaluaciones.length);
 					console.log(evaluaciones);
 					$scope.evaluaciones = evaluaciones;
 				});
@@ -54,15 +57,16 @@ var ComparacionController = function($scope, $http) {
 		alert('comparación realizada');
 		console.log("elegidos");
 		console.log($scope.elegidos);*/
+		$scope.botonReporte = 1;
 		console.log($scope.elegidos);
 		$scope.contenedorelegidos = new Object();
 		$scope.contenedorelegidos.posiciones = $scope.elegidos;
 
 		console.log($scope.contenedorelegidos);
-		$http.post('comparison/comparar', $scope.contenedorelegidos).success(function() {
-			alert('comparación realizada');
-			
-			console.log($scope.contenedorelegidos);
+		$http.post('comparison/comparar', $scope.contenedorelegidos).success(function(resultados) {
+			$scope.resultados = resultados;
+			console.log("resultados");
+			console.log($scope.resultados);
 		});
 	};
 
@@ -191,5 +195,14 @@ var ComparacionController = function($scope, $http) {
 				"#h#", h).replace("#mm#", mm).replace("#m#", m).replace("#ss#",
 				ss).replace("#s#", s).replace("#ampm#", ampm).replace("#AMPM#",
 				AMPM);
+	};
+	
+	$scope.verReporte = function(){
+		console.log('reporte');
+		$scope.state=2;
+		//window.location.href = "http://localhost:8080/codecomparatorServer/resultados";
+		//$location.url('#resultados');
+		//http://localhost:8080/codecomparatorServer
+		
 	};
 };
