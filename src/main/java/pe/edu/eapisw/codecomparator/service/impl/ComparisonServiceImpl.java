@@ -25,6 +25,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 
 	@Override
 	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
+		evaluaciones.clear();
 		// simulo traer un todos los cursos del docente
 		Curso algoritmica = new Curso();
 		algoritmica.setCursoId(1);

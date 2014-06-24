@@ -5,11 +5,17 @@
 			<div class="col-md-6">
 				<label class="col-md-4 control-label">Evaluación</label>
 				<div class="col-md-8">
-					<select class="form-control">
+					<!-- <select class="form-control">
 						<option>09/05/14 Algoritmica 02 - Grupo 1:Punteros</option>
 						<option>09/05/14 Algoritmica 02 - Grupo 2:Punteros</option>
 						<option>18/05/14 Programacion 02 - Grupo 1:Listas</option>
 						<option>18/05/14 Programacion 01 - Grupo 3:Archivos</option>
+					</select> -->
+					<select ng-model="evaluacionSeleccionada"
+						ng-options="formatearEvaluacion(evaluacion) for evaluacion in evaluaciones"
+						ng-change="poblarPosiciones(evaluacionSeleccionada)"
+						class="form-control">
+						<option value="">Escoja una evaluación</option>
 					</select>
 
 				</div>
@@ -35,76 +41,76 @@
 				<div class="row">
 					<div class="col-md-3">
 						<button class="btn btn-primary header_botom active"
-							data-toggle="modal" data-target="#myModal">09200153</button>
+							data-toggle="modal" data-target="#myModal">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200152</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200153</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200155</button>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200145</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200302</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200163</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200152</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 				</div>
 				<br>
 				<div class="row">
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200475</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200056</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">10252002</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">10952202</button>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200252</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200651</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200220</button>
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">09200122</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 				</div>
 				<br>
 				<div class="row">
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">10200196</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">10200218</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">10200215</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 					<div class="col-md-3">
-						<button class="btn btn-primary header_botom active">10200197</button>
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary header_botom active">LIBRE</button>
 					</div>
 				</div>
 			</div>
