@@ -33,6 +33,11 @@ App.config([ '$routeProvider', function($routeProvider) {
         controller : ResultadosController
     });
     
+    $routeProvider.when('/cambiarPass', {
+        templateUrl : 'cambiarPass/layout',
+        controller : CambiarPassController
+    });
+    
 	$routeProvider.otherwise({
 		redirectTo : '/inicio'
 	});

@@ -47,6 +47,9 @@ var ComparacionController = function($scope, $http, $location) {
 				function(evaluaciones) {
 					console.log(evaluaciones);
 					$scope.evaluaciones = evaluaciones;
+				})
+				.error(function(){
+					console.log("error en la conexion con dropbox");
 				});
 	};
 
@@ -108,21 +111,27 @@ var ComparacionController = function($scope, $http, $location) {
 		// alert($scope.ii.alumno.alumnoId);
 	};
 
-	$scope.agregarElegido = function(posicion) {
+	$scope.agregarElegido = function(posicion,idElegido) {
 		// salir si la posicion está vacía
 		if (posicion.alumno == null || posicion.proyecto == null) {
 			return;
 		}
 		// salir si la posicion ya está elegida
+		
 		if ($scope.elegidos.indexOf(posicion) != -1) {
 			return;
 		}
+		console.log('index');
+		console.log(idElegido);
+		$('#'+idElegido).css({'background-color':'brown'});
+		//rgb(37, 172, 80)
 		var cuenta = $scope.elegidos.length;
 		if (cuenta == 5) {
 			alert('Puede seleccionar máximo 5 alumnos para comparar.');
 			return;
 		}
 		$scope.elegidos[cuenta] = posicion;
+			
 	};
 
 	$scope.fetchEvaluaciones();
