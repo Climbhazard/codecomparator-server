@@ -10,14 +10,31 @@ public class Evaluacion implements Serializable {
 
 	private static final long serialVersionUID = 3793765939640816920L;
 	private Integer evaluacionId;
-	private String titulo;// en lugar de descripcion al momento de mostralo en la interfaz
+	private String titulo;// en lugar de descripcion al momento de mostralo en
+							// la interfaz
 	private String descripcion;
-	private String duracion;//duración de la evaluación
-	private Date horaInicio;//eliminar
-	private Date horaFin;//eliminar
+	private String duracion;// duraciÃ³n de la evaluaciÃ³n
+	private Date horaInicio;// eliminar
+	private Date horaFin;// eliminar
 	private Date fechaRegistro;
 	private Curso curso;
 	private Collection<Posicion> matriz;
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDuracion() {
+		return duracion;
+	}
+
+	public void setDuracion(String duracion) {
+		this.duracion = duracion;
+	}
 
 	public Integer getEvaluacionId() {
 		return evaluacionId;

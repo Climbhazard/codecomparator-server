@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import pe.edu.eapisw.codecomparator.persistence.impl.DropboxClientImpl;
 
-public class DropboxUploaderTest {
+public class DropboxClientTest {
 
 	private DropboxClient dropboxUploader;
 	private String authToken;
@@ -24,7 +24,7 @@ public class DropboxUploaderTest {
 	public void testUploadAnEvaluacion() {
 		String srcFilename = "src/test/java/pe/edu/eapisw/codecomparator/persistence/Evaluacion";
 		String docenteId = "/D010203";
-		String nombreCurso = "/Algorítmica II";
+		String nombreCurso = "/Algorï¿½tmica II";
 		String evaluacionId = "/" + String.valueOf(1);
 		String destFilename = docenteId + nombreCurso + evaluacionId + ".json";
 		dropboxUploader.upload(authToken, srcFilename, destFilename);
@@ -33,11 +33,24 @@ public class DropboxUploaderTest {
 	@Test
 	public void testDownloadAnEvaluacion() {
 		String docenteId = "/D010203";
-		String nombreCurso = "/Algorítmica II";
+		String nombreCurso = "/Algorï¿½tmica II";
 		String evaluacionId = "/" + String.valueOf(1);
 		String srcFilename = docenteId + nombreCurso + evaluacionId;
 		System.out.println("&"
 				+ dropboxUploader.download(authToken, srcFilename) + "&");
+	}
+
+	@Test
+	public void testDownloadALotFiles() {
+		String srcFilename = "/test/Main.java";
+		System.out.println("&"
+				+ dropboxUploader.download(authToken, srcFilename) + "&");
+	}
+
+	@Test
+	public void testCreateFolder() {
+		String path = "/test/another-directory";
+		dropboxUploader.createFolder(authToken, path);
 	}
 
 	@Test

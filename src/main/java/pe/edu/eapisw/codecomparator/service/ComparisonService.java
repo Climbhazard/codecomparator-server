@@ -3,7 +3,6 @@ package pe.edu.eapisw.codecomparator.service;
 import java.util.Collection;
 import java.util.List;
 
-import pe.edu.eapisw.codecomparator.beans.json.Codigo;
 import pe.edu.eapisw.codecomparator.beans.json.Evaluacion;
 import pe.edu.eapisw.codecomparator.beans.json.Proyecto;
 import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;

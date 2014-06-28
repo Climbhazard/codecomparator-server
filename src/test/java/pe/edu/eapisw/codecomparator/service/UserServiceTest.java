@@ -23,7 +23,7 @@ public class UserServiceTest {
 		usuarioExpected.setUsuario("oshingc");
 		usuarioExpected.setPassword("123456");
 
-		UserService userService = mock(UserService.class);
+		UsuarioService userService = mock(UsuarioService.class);
 		when(userService.loginDocente(usuarioExpected)).thenReturn(usuarioExpected);
 		Usuario usuarioActual = userService.loginDocente(usuarioExpected);
 		assertEquals(usuarioExpected.getUsuario(), usuarioActual.getUsuario());

@@ -1,21 +1,27 @@
 package pe.edu.eapisw.codecomparator.beans.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ContainerResult {
 
-	private List<ContainerChartResult> charResults;
+	private Collection<List<ContainerChartResult>> charResults;
 
-	public ContainerResult(){
-		
+	public ContainerResult() {
+		charResults = new ArrayList<List<ContainerChartResult>>();
 	}
-	
-	public List<ContainerChartResult> getCharResults() {
+
+	public Collection<List<ContainerChartResult>> getCharResults() {
 		return charResults;
 	}
 
+	/**
+	 * @param charResults
+	 *            resultado de una comparación de dos proyectos.
+	 */
 	public void setCharResults(List<ContainerChartResult> charResults) {
-		this.charResults = charResults;
+		this.charResults.add(charResults);
 	}
-	
+
 }

@@ -6,19 +6,19 @@
  * @constructor
  */
 var ComparacionController = function($scope, $http, $location) {
-	
+
 	$scope.evaluacionSeleccionada = {};
-	$scope.state=1;
+	$scope.state = 1;
 	$scope.botonReporte = 0;
-	
+
 	$scope.tiposComparacion = [ {
-		llave : 'Comparación de adyacencia',
+		llave : 'Comparaciï¿½n de adyacencia',
 		valor : 1
 	}, {
-		llave : 'Comparación de 1 con varios',
+		llave : 'Comparaciï¿½n de 1 con varios',
 		valor : 2
 	} ];
-	// por defecto Comparación de adyacencia
+	// por defecto Comparaciï¿½n de adyacencia
 	$scope.comparacionSeleccionada = $scope.tiposComparacion[0];
 	$scope.i = {};
 	$scope.ii = {};
@@ -47,30 +47,24 @@ var ComparacionController = function($scope, $http, $location) {
 				function(evaluaciones) {
 					console.log(evaluaciones);
 					$scope.evaluaciones = evaluaciones;
-				})
-				.error(function(){
-					console.log("error en la conexion con dropbox");
-				});
+				}).error(function() {
+			console.log("error en la conexiÃ³n con dropbox");
+		});
 	};
 
 	$scope.comparar = function() {
-		/*$http.post('comparison/elegidos', $scope.elegidos).success(function() {
-			alert('comparación realizada');
-		});
-		alert('comparación realizada');
-		console.log("elegidos");
-		console.log($scope.elegidos);*/
 		$scope.botonReporte = 1;
 		console.log($scope.elegidos);
-		$scope.contenedorelegidos = new Object();
-		$scope.contenedorelegidos.posiciones = $scope.elegidos;
+		$scope.contenedorElegidos = new Object();
+		$scope.contenedorElegidos.posiciones = $scope.elegidos;
 
-		console.log($scope.contenedorelegidos);
-		$http.post('comparison/comparar', $scope.contenedorelegidos).success(function(resultados) {
-			$scope.resultados = resultados;
-			console.log("resultados");
-			console.log($scope.resultados);
-		});
+		console.log($scope.contenedorElegidos);
+		$http.post('comparison/comparar', $scope.contenedorElegidos).success(
+				function(resultados) {
+					$scope.resultados = resultados;
+					console.log("resultados");
+					console.log($scope.resultados.charResults[0]);
+				});
 	};
 
 	$scope.formatearEvaluacion = function(evaluacion) {
@@ -111,27 +105,29 @@ var ComparacionController = function($scope, $http, $location) {
 		// alert($scope.ii.alumno.alumnoId);
 	};
 
-	$scope.agregarElegido = function(posicion,idElegido) {
-		// salir si la posicion está vacía
+	$scope.agregarElegido = function(posicion, idElegido) {
+		// salir si la posicion estï¿½ vacï¿½a
 		if (posicion.alumno == null || posicion.proyecto == null) {
 			return;
 		}
-		// salir si la posicion ya está elegida
-		
+		// salir si la posicion ya estï¿½ elegida
+
 		if ($scope.elegidos.indexOf(posicion) != -1) {
 			return;
 		}
 		console.log('index');
 		console.log(idElegido);
-		$('#'+idElegido).css({'background-color':'brown'});
-		//rgb(37, 172, 80)
+		$('#' + idElegido).css({
+			'background-color' : 'brown'
+		});
+		// rgb(37, 172, 80)
 		var cuenta = $scope.elegidos.length;
 		if (cuenta == 5) {
-			alert('Puede seleccionar máximo 5 alumnos para comparar.');
+			alert('Puede seleccionar mï¿½ximo 5 alumnos para comparar.');
 			return;
 		}
 		$scope.elegidos[cuenta] = posicion;
-			
+
 	};
 
 	$scope.fetchEvaluaciones();
@@ -158,19 +154,6 @@ var ComparacionController = function($scope, $http, $location) {
 		$scope.xix = {};
 		$scope.xx = {};
 	};
-
-	/*
-	 * $scope.addNewCar = function(newCar) { $http.post('cars/addCar/' +
-	 * newCar).success(function() { $scope.fetchCarsList(); }); $scope.carName =
-	 * ''; };
-	 * 
-	 * $scope.removeCar = function(car) { $http.delete('cars/removeCar/' +
-	 * car).success(function() { $scope.fetchCarsList(); }); };
-	 * 
-	 * $scope.removeAllCars = function() {
-	 * $http.delete('cars/removeAllCars').success(function() {
-	 * $scope.fetchCarsList(); }); };
-	 */
 
 	Date.prototype.customFormat = function(formatString) {
 		var YYYY, YY, MMMM, MMM, MM, M, DDDD, DDD, DD, D, hhh, hh, h, mm, m, ss, s, ampm, AMPM, dMod, th;
@@ -205,13 +188,9 @@ var ComparacionController = function($scope, $http, $location) {
 				ss).replace("#s#", s).replace("#ampm#", ampm).replace("#AMPM#",
 				AMPM);
 	};
-	
-	$scope.verReporte = function(){
+
+	$scope.verReporte = function() {
 		console.log('reporte');
-		$scope.state=2;
-		//window.location.href = "http://localhost:8080/codecomparatorServer/resultados";
-		//$location.url('#resultados');
-		//http://localhost:8080/codecomparatorServer
-		
+		$scope.state = 2;
 	};
 };

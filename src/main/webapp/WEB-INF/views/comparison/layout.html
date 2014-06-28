@@ -1,43 +1,43 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/inicio">CodeComparator</a>
-        </div>
-        <div class="navbar-collapse collapse">
-             <ul class="nav navbar-nav navbar-right">
-          
-          <li class="dropdown">
-                  <a href="#" id="perfil" class="dropdown-toggle" data-toggle="dropdown">			                  				         
-			          Fanny Sobero<b class="caret"></b>
-                  </a>
-           
-                            <ul class="dropdown-menu">
-                                <li><a href="#/cambiarPass">Cambiar contraseña</a></li>
-                                
-                                <li><a href="#/login">Cerrar Sesión</a></li>
-                            </ul>
-            </li>
-         </ul>
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#/inicio">CodeComparator</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
 
-        </div><!--/.navbar-collapse -->
-    </div>
+				<li class="dropdown"><a href="#" id="perfil"
+					class="dropdown-toggle" data-toggle="dropdown"> Fanny Sobero<b
+						class="caret"></b>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li><a href="#/cambiarPass">Cambiar contraseï¿½a</a></li>
+
+						<li><a href="#/login">Cerrar Sesiï¿½n</a></li>
+					</ul></li>
+			</ul>
+
+		</div>
+		<!--/.navbar-collapse -->
+	</div>
 </div>
 
 
 
 <div class="container">
-	<h1 class="page-header">Comparación de proyectos</h1>
+	<h1 class="page-header">Comparaciï¿½n de proyectos</h1>
 	<form class="form-horizontal" role="form">
 		<div class="row form-group">
 			<div class="col-md-6">
-				<label class="col-md-4 control-label">Evaluación</label>
+				<label class="col-md-4 control-label">Evaluaciï¿½n</label>
 				<div class="col-md-8">
 					<!-- <select class="form-control">
 						<option>09/05/14 Algoritmica 02 - Grupo 1:Punteros</option>
@@ -49,7 +49,7 @@
 						ng-options="formatearEvaluacion(evaluacion) for evaluacion in evaluaciones"
 						ng-change="poblarPosiciones(evaluacionSeleccionada)"
 						class="form-control">
-						<option value="">Escoja una evaluación</option>
+						<option value="">Escoja una evaluaciï¿½n</option>
 					</select>
 
 				</div>
@@ -57,14 +57,14 @@
 		</div>
 		<div class="row form-group">
 			<div class="col-md-6">
-				<label class="col-md-4 control-label">Tipo de Comparación</label>
+				<label class="col-md-4 control-label">Tipo de Comparaciï¿½n</label>
 				<div class="col-md-8">
 					<select ng-model="comparacionSeleccionada"
 						ng-options="tipo.llave for tipo in tiposComparacion"
 						class="form-control"></select>
 					<!-- <select class="form-control">
-						<option>Comparación de adyacencia</option>
-						<option>Comparación de 1 con varios</option>
+						<option>Comparaciï¿½n de adyacencia</option>
+						<option>Comparaciï¿½n de 1 con varios</option>
 
 					</select> -->
 				</div>
@@ -196,48 +196,49 @@
 					style="margin-top: 13%; margin-left: 28%;" ng-click="comparar()">
 					<span class="glyphicon glyphicon-ok-sign"></span> Comparar
 				</button>
-				<button ng-show="botonReporte==1" type="button" class="btn btn-success"
-					style="margin-top: 11%; margin-left: 30%;" ng-click="verReporte()">
+				<button ng-show="botonReporte==1" type="button"
+					class="btn btn-success" style="margin-top: 11%; margin-left: 30%;"
+					ng-click="verReporte()">
 					<span class="glyphicon glyphicon-download-alt"></span>Ver reporte
-					
+
 				</button>
 			</div>
 		</div>
-		
-		
+
+
 		<!-- segundo div -->
-		
-		<div ng-show="state==2" class="row highlight botones-clase" style="height:290px;">
-			
+
+		<div ng-show="state==2" class="row highlight botones-clase"
+			style="height: 290px;">
+
 			<row>
-				<div class="col-md-6 btn-danger">Primer Archivo</div>
-				<div class="col-md-6 btn-danger">Segundo Archivo</div>
+			<div class="col-md-6 btn-danger">Primer Archivo</div>
+			<div class="col-md-6 btn-danger">Segundo Archivo</div>
 			</row>
-			
+
 			<row>
-				<div class="col-md-6 ">{{resultados.charResults[0].codeFirstProyect.nombre}}</div>
-				<div class="col-md-6 ">{{resultados.charResults[0].codeSecondProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados[0].charResults[0].codeFirstProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados[0].charResults[0].codeSecondProyect.nombre}}</div>
 			</row>
-			
-					
+
+
 			<row>
-				<div class="col-md-6 btn-danger">Contenido</div>
-				<div class="col-md-6 btn-danger">Contenido</div>
+			<div class="col-md-6 btn-danger">Contenido</div>
+			<div class="col-md-6 btn-danger">Contenido</div>
 			</row>
-			
+
 			<row>
-				<div class="col-md-6">{{resultados.charResults[0].codeFirstProyect.contenido}}</div>				
-				<div class="col-md-6">{{resultados.charResults[0].codeSecondProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados[0].charResults[0].codeFirstProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados[0].charResults[0].codeSecondProyect.contenido}}</div>
 			</row>
-			<br/>
+			<br />
 			<row class="row">
-			
-				<div class="col-md-12 btn-danger">Resultados</div>
+
+			<div class="col-md-12 btn-danger">Resultados</div>
 			</row>
-			<row>
-			
-				<!-- <div class="col-md-6">{{resultados.charResults[0].fdtw}}</div>-->
-				<div title="Estado: Alta similaridad" class="col-md-8 btn-info" style="width:100%; height:22px;">100% Similaridad</div>
+			<row> <!-- <div class="col-md-6">{{resultados.charResults[0].fdtw}}</div>-->
+			<div title="Estado: Alta similaridad" class="col-md-8 btn-info"
+				style="width: 100%; height: 22px;">100% Similaridad</div>
 			</row>
 			<!-- Resultados<br />
 			<table ng-repeat="res in resultados">
@@ -248,14 +249,14 @@
 			
 			<tr>{{res.fdtw}}</tr>
 			</table>-->
-			
+
 		</div>
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	</form>
 
 </div>

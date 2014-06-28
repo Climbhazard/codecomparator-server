@@ -3,15 +3,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
-		<property name="locations"> <list> <value>/WEB-INF/db/jdbc.properties</value> 
-		</list> </property> </bean> -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/db/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
 
-	<!-- Configuración MyBatis <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="${jdbc.driverClassName}" /> <property 
-		name="url" value="${jdbc.url}" /> <property name="username" value="${jdbc.username}" 
-		/> <property name="password" value="${jdbc.password}" /> </bean> <bean id="sqlSessionFactory" 
-		class="org.mybatis.spring.SqlSessionFactoryBean"> <property name="dataSource" 
-		ref="dataSource" /> </bean> -->
+	<!-- Datasource -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- Configuración MyBatis -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 </beans>

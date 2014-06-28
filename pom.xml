@@ -45,7 +45,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
-		</dependency>			
+		</dependency>
 
 		<dependency>
 			<groupId>org.powermock</groupId>
@@ -58,7 +58,7 @@
 			<artifactId>powermock-api-mockito</artifactId>
 			<version>1.5.5</version>
 			<scope>test</scope>
-		</dependency>  
+		</dependency>
 
 		<!-- Dependencias de EasyMock -->
 		<dependency>
@@ -71,7 +71,7 @@
 			<artifactId>easymockclassextension</artifactId>
 			<version>3.2</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-easymock</artifactId>
 			<version>1.5.5</version>
@@ -104,9 +104,15 @@
 			<artifactId>dropbox-core-sdk</artifactId>
 			<version>[1.7,1.8)</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<artifactId>spring-boot-starter-remote-shell</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-remote-shell</artifactId>
 			<version>1.0.0.RELEASE</version>
 		</dependency>
 	</dependencies>

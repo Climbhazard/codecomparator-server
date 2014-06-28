@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Locale;
 
+import org.springframework.stereotype.Component;
+
 import pe.edu.eapisw.codecomparator.persistence.DropboxClient;
 
 import com.dropbox.core.DbxClient;
@@ -18,6 +20,7 @@ import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.DbxWriteMode;
 import com.dropbox.core.json.JsonReader.FileLoadException;
 
+@Component("dropboxClient")
 public class DropboxClientImpl implements DropboxClient {
 
 	// private DbxClient dbxClient;
@@ -101,6 +104,17 @@ public class DropboxClientImpl implements DropboxClient {
 			e.printStackTrace();
 		}
 		return content;
+	}
+
+	@Override
+	public void createFolder(String authToken, String path) {
+		try {
+			createDbxClient(authToken).createFolder(path);
+		} catch (DbxException e) {
+			e.printStackTrace();
+		} catch (FileLoadException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

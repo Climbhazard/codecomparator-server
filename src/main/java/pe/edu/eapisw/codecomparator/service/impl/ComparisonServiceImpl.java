@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.eapisw.codecomparator.beans.json.Codigo;
@@ -14,7 +15,6 @@ import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;
 import pe.edu.eapisw.codecomparator.beans.model.Curso;
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.persistence.DropboxClient;
-import pe.edu.eapisw.codecomparator.persistence.impl.DropboxClientImpl;
 import pe.edu.eapisw.codecomparator.service.ComparisonService;
 import pe.edu.eapisw.codecomparator.service.core.fdtw.FDTW;
 import pe.edu.eapisw.codecomparator.util.JSONUtil;
@@ -25,11 +25,12 @@ public class ComparisonServiceImpl implements ComparisonService {
 	private Collection<Evaluacion> evaluaciones = new ArrayList<Evaluacion>();
 
 	private JSONUtil jsonUtil = new JSONUtil();
-	// TODO: reorganizar estos objetos para manipularlos con Spring
-	private DropboxClient dropboxUploader = new DropboxClientImpl();
-	
+
+	@Autowired
+	private DropboxClient dropboxUploader;
+
 	private Codigo code2 = new Codigo();
-	private Double min = new Double(0); 
+	private Double min = new Double(0);
 
 	@Override
 	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
@@ -38,7 +39,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 		Curso algoritmica = new Curso();
 		algoritmica.setCursoId(1);
 		algoritmica.setGrupo(2);
-		algoritmica.setNombre("Algorítmica II");
+		algoritmica.setNombre("Algorï¿½tmica II");
 
 		// traigo todas las evaluaciones de este curso
 		Evaluacion eva1 = new Evaluacion();
@@ -66,18 +67,20 @@ public class ComparisonServiceImpl implements ComparisonService {
 
 		return evaluaciones;
 	}
-	
 
 	//
-	
+
 	/**
-	 * Método inicial de comparación de proyectos
-	 * @author MaríaAlejandra (oshingc)
-	 * @param Proyecto project1
-	 * @param Proyecto project2
+	 * Mï¿½todo inicial de comparaciï¿½n de proyectos
+	 * 
+	 * @author Marï¿½aAlejandra (oshingc)
+	 * @param Proyecto
+	 *            project1
+	 * @param Proyecto
+	 *            project2
 	 * 
 	 * */
-	
+
 	@Override
 	public List<ContainerChartResult> comparisionProject(Proyecto project1,
 			Proyecto project2) {
@@ -86,18 +89,19 @@ public class ComparisonServiceImpl implements ComparisonService {
 		travelComparisionProject(project1, project2, containers);
 		return containers;
 	}
-	
+
 	private Double compareFiles(Codigo code1, Codigo code2) {
-        FDTW fdtw = new FDTW();
-        fdtw.SetSequences(code1.getQ(), code2.getQ());
-        Double a = fdtw.GetDistance();
-        return a;
+		FDTW fdtw = new FDTW();
+		fdtw.SetSequences(code1.getQ(), code2.getQ());
+		Double a = fdtw.GetDistance();
+		return a;
 	}
-	
+
 	private void travelComparisionProject(Proyecto project1, Proyecto project2,
 			List<ContainerChartResult> containers) {
 		ArrayList<Codigo> codes = (ArrayList<Codigo>) project1.getCodigos();
-		ArrayList<Paquete> packages = (ArrayList<Paquete>) project1.getPaquetes();
+		ArrayList<Paquete> packages = (ArrayList<Paquete>) project1
+				.getPaquetes();
 
 		for (Codigo code : codes) {
 			this.code2 = new Codigo();
@@ -111,8 +115,8 @@ public class ComparisonServiceImpl implements ComparisonService {
 			container.setFdtw(String.valueOf(this.min));
 			container.setNameFirstProyect(project1.getNombre());
 			container.setNameSecondProyect(project2.getNombre());
-			//container.setChartOne(this.generateGraphic(code));
-			//container.setChartTwo(this.generateGraphic(this.code2));
+			// container.setChartOne(this.generateGraphic(code));
+			// container.setChartTwo(this.generateGraphic(this.code2));
 			containers.add(container);
 		}
 
@@ -121,8 +125,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 		}
 
 	}
-	
-	
+
 	private void travelComparisionProject(Paquete package1, Proyecto project1,
 			Proyecto project2, List<ContainerChartResult> containers) {
 		ArrayList<Codigo> codes = (ArrayList<Codigo>) package1.getCodigos();
@@ -140,8 +143,8 @@ public class ComparisonServiceImpl implements ComparisonService {
 			container.setNameFirstProyect(project1.getNombre());
 			container.setNameSecondProyect(project2.getNombre());
 
-			//container.setChartOne(this.generateGraphic(code));
-			//container.setChartTwo(this.generateGraphic(this.code2));
+			// container.setChartOne(this.generateGraphic(code));
+			// container.setChartTwo(this.generateGraphic(this.code2));
 
 			containers.add(container);
 
@@ -152,8 +155,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 		}
 
 	}
-	
-	
+
 	private void travelComparisionMinProject(Proyecto project2, Codigo code1) {
 
 		ArrayList<Codigo> codes = (ArrayList<Codigo>) project2.getCodigos();
@@ -193,5 +195,5 @@ public class ComparisonServiceImpl implements ComparisonService {
 		}
 
 	}
-	
+
 }
