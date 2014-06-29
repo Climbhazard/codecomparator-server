@@ -14,19 +14,24 @@ var LoginController = function($scope, $http) {
 	};
 
 	$scope.loginDocente = function() {
-
+		console.log('LoginController.loginDocente');
 		$http.post('login/docente', $scope.user).success(function(usuario) {
-			$scope.userVerified = usuario;
+			$scope.user = usuario;
+
+			console.log($scope.user.id);
+			console.log($scope.user.usuario);
+			console.log($scope.user.password);
+			if ($scope.user != null) {
+				console.log("logged");
+				// $scope.url = "inicio";
+			} else {
+				console.log("not valide user");
+				// $scope.url = "login";
+			}
+
+		}).error(function() {
+			console.log('Error desde el servidor');
 		});
-		console.log($scope.userVerified.usuario);
-		console.log($scope.userVerified.password);
-		if ($scope.userVerified != null) {
-			console.log("logged");
-			// $scope.url = "inicio";
-		} else {
-			console.log("not valide user");
-			// $scope.url = "login";
-		}
 
 	};
 

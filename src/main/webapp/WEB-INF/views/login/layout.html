@@ -4,57 +4,58 @@
 <h3>{{user.password}}</h3>-->
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">CodeComparator</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-				<!-- ¿te parece bien que vaya la acción de loginDocente() en el botón rojo de arriba? -->
-                <a href="" class="btn btn-danger" style="margin-top: 8px;" ng-click="loginDocente()">Iniciar Sesión</a>
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">CodeComparator</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<a href="" class="btn btn-danger" style="margin-top: 8px;"
+					ng-click="loginDocente()">Iniciar Sesión</a>
 
-            </ul>
+			</ul>
 
-        </div><!--/.navbar-collapse -->
-    </div>
+		</div>
+		<!--/.navbar-collapse -->
+	</div>
 </div>
 
+<div class="container">
+
+	<form class="form" id="login" ng-submit="loginDocente()"
+		method="post" role="form" novalidate="novalidate">
+		<img src="resources/img/login_user.png"
+			style="width: 35%; border-radius: 50%; margin-left: 32%;"> <br>
+		<br>
+		<div id="usuario" class="form-group">
+			<input ng-model="user.usuario" type="text" name="t_usuario"
+				class="required form-control" placeholder="Usuario">
+		</div>
+		<div id="contrasenia" class="form-group">
+			<input ng-model="user.password" type="password" name="t_password"
+				class="required form-control" placeholder="Contraseña">
+		</div>
+		<div>
+			<span id="message_error" style="display: none; color: #b94a48;"></span>
+		</div>
+		<label class="checkbox"> <input type="checkbox"
+			value="remember-me">Recordarme
+		</label>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
 
 
-  <div class="container">
-        
+	</form>
+	<a href="#/cambiarPass" class="crear_cuent">¿Haz olvidado tu
+		contraseña?</a> <a href="#/account" class="crear_cuent">Crear una
+		cuenta</a>
 
-       
-       
-        <form class="form" id="login" action="#/login" method="post" role="form" novalidate="novalidate">
-         	<img src="resources/img/login_user.png" style="width: 35%;border-radius: 50%;margin-left: 32%;"> 
-         	<br>
-         	<br>
-          <div id="usuario" class="form-group">
-            
-          <input type="text" name="t_usuario" class="required form-control" placeholder="Usuario">
-          </div>
-          <div id="contrasenia" class="form-group">
-            <input type="password" name="t_password" class="required form-control" placeholder="Contraseña">              
-          </div>
-          <div><span id="message_error" style="display:none;color:#b94a48;"></span></div>
-            <label class="checkbox">
-              <input type="checkbox" value="remember-me">Recordarme
-           </label>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
-
-
-         </form>
-         <a href="#/cambiarPass" class="crear_cuent">¿Haz olvidado tu contraseña?</a>
-         <a href="#/account" class="crear_cuent">Crear una cuenta</a>
-
-    </div>
+</div>
 
 
 <!-- 

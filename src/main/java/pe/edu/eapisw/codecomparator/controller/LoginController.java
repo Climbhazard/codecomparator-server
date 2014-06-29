@@ -26,7 +26,8 @@ public class LoginController {
 	@RequestMapping(value = "/docente", method = RequestMethod.POST)
 	public @ResponseBody Usuario getLoginDocente(@RequestBody Usuario usuario) {
 		System.out.println("LoginController.getUsuario()");
-		return usuarioService.loginDocente(usuario);
+		Usuario u =usuarioService.loginDocente(usuario); 
+		return u;
 	}
 
 	@RequestMapping("/layout")

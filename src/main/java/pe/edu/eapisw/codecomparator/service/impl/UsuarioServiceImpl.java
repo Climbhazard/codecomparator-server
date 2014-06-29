@@ -13,7 +13,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
 	public UsuarioMapper usuarioMapper;
-	
+
 	@Override
 	public Usuario getUsuario() {
 		Usuario usuario = new Usuario();
@@ -30,12 +30,15 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	@Transactional
 	public void crearCuentaDocente(Usuario usuario) {
-//		try{
-		usuarioMapper.crearDocente(usuario.getDocente().getCodigo(),usuario.getDocente().getNombre(), usuario.getDocente().getApellidoPaterno(), usuario.getDocente().getApellidoMaterno());
+		// try{
+		usuarioMapper.crearDocente(usuario.getDocente().getCodigo(), usuario
+				.getDocente().getNombre(), usuario.getDocente()
+				.getApellidoPaterno(), usuario.getDocente()
+				.getApellidoMaterno());
 		usuarioMapper.crearUsuario(usuario.getUsuario(), usuario.getPassword());
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
+		// }catch(Exception e){
+		// e.printStackTrace();
+		// }
 	}
 
 	/*

@@ -8,14 +8,19 @@ import pe.edu.eapisw.codecomparator.beans.model.Usuario;
 
 public interface UsuarioMapper {
 
-	@Select("SELECT * FROM usuario WHERE t_usuario = #{usuario} and t_password = #{password}")
+	// retornar los campos cuyos nombres y tipos sean compatibles a los nombres
+	// y campos de la clase que se quiere poblar
+	@Select("SELECT usuario.n_usuario_id as id, usuario.t_usuario as usuario, usuario.t_password as password FROM usuario WHERE t_usuario = #{usuario} and t_password = #{password}")
 	public Usuario loginDocente(Usuario usuario);
 
 	@Insert("INSERT INTO usuario (t_usuario, t_password) VALUES (#{usuario}, #{password})")
-	public void crearUsuario(@Param("usuario") String usuario, @Param("password") String password);
-	
-	@Insert("INSERT INTO docente (t_codigo, t_nombre, t_apellido_paterno, t_apellido_materno) VALUES (#{codigo}, #{nombre}, #{apellidoPaterno}, #{apellidoMaterno})")
-	public void crearDocente(@Param("codigo") String codigo, @Param("nombre") String nombre, @Param("apellidoPaterno") String apellidoPaterno, @Param("apellidoMaterno") String apellidoMaterno);
+	public void crearUsuario(@Param("usuario") String usuario,
+			@Param("password") String password);
 
+	@Insert("INSERT INTO docente (t_codigo, t_nombre, t_apellido_paterno, t_apellido_materno) VALUES (#{codigo}, #{nombre}, #{apellidoPaterno}, #{apellidoMaterno})")
+	public void crearDocente(@Param("codigo") String codigo,
+			@Param("nombre") String nombre,
+			@Param("apellidoPaterno") String apellidoPaterno,
+			@Param("apellidoMaterno") String apellidoMaterno);
 
 }
