@@ -48,7 +48,7 @@ var ComparacionController = function($scope, $http, $location) {
 					console.log(evaluaciones);
 					$scope.evaluaciones = evaluaciones;
 				}).error(function() {
-			console.log("error en la conexiÃ³n con dropbox");
+			console.log("error en la conexión con dropbox");
 		});
 	};
 
@@ -123,7 +123,7 @@ var ComparacionController = function($scope, $http, $location) {
 		// rgb(37, 172, 80)
 		var cuenta = $scope.elegidos.length;
 		if (cuenta == 5) {
-			alert('Puede seleccionar mï¿½ximo 5 alumnos para comparar.');
+			alert('Puede seleccionar máximo 5 alumnos para comparar.');
 			return;
 		}
 		$scope.elegidos[cuenta] = posicion;

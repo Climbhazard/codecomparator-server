@@ -39,7 +39,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 		Curso algoritmica = new Curso();
 		algoritmica.setCursoId(1);
 		algoritmica.setGrupo(2);
-		algoritmica.setNombre("Algorï¿½tmica II");
+		algoritmica.setNombre("Algorítmica II");
 
 		// traigo todas las evaluaciones de este curso
 		Evaluacion eva1 = new Evaluacion();
@@ -71,9 +71,9 @@ public class ComparisonServiceImpl implements ComparisonService {
 	//
 
 	/**
-	 * Mï¿½todo inicial de comparaciï¿½n de proyectos
+	 * Método inicial de comparación de proyectos
 	 * 
-	 * @author Marï¿½aAlejandra (oshingc)
+	 * @author MaráaAlejandra (oshingc)
 	 * @param Proyecto
 	 *            project1
 	 * @param Proyecto

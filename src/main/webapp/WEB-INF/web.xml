@@ -6,7 +6,10 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/app-config.xml</param-value>
+		<param-value>
+			/WEB-INF/spring/app-config.xml
+			/WEB-INF/spring/mybatis-mappers/mapper-config.xml
+		</param-value>
 	</context-param>
 
 	<listener>
@@ -22,7 +25,7 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-    <servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
