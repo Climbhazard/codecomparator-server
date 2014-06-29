@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pe.edu.eapisw.codecomparator.beans.model.Usuario;
@@ -22,7 +23,7 @@ public class LoginController {
 		return usuarioService.getUsuario();
 	}
 
-	@RequestMapping(value = "/docente")
+	@RequestMapping(value = "/docente", method = RequestMethod.POST)
 	public @ResponseBody Usuario getLoginDocente(@RequestBody Usuario usuario) {
 		System.out.println("LoginController.getUsuario()");
 		return usuarioService.loginDocente(usuario);
