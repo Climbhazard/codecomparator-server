@@ -12,7 +12,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
 	public UsuarioMapper usuarioMapper;
-
+	
 	@Override
 	public Usuario getUsuario() {
 		Usuario usuario = new Usuario();
@@ -27,9 +27,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public void crearCuentaDocente(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+	public void crearCuentaDocente(Usuario usuario) {		
+		usuarioMapper.crearCuentaDocente(usuario);
 	}
 
 	/*

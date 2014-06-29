@@ -26,6 +26,38 @@
 </div>
 
 
+
+  <div class="container">
+        
+
+       
+       
+        <form class="form" id="login" action="#/login" method="post" role="form" novalidate="novalidate">
+         	<img src="resources/img/login_user.png" style="width: 35%;border-radius: 50%;margin-left: 32%;"> 
+         	<br>
+         	<br>
+          <div id="usuario" class="form-group">
+            
+          <input type="text" name="t_usuario" class="required form-control" placeholder="Usuario">
+          </div>
+          <div id="contrasenia" class="form-group">
+            <input type="password" name="t_password" class="required form-control" placeholder="Contraseña">              
+          </div>
+          <div><span id="message_error" style="display:none;color:#b94a48;"></span></div>
+            <label class="checkbox">
+              <input type="checkbox" value="remember-me">Recordarme
+           </label>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+
+
+         </form>
+         <a href="#/cambiarPass" class="crear_cuent">¿Haz olvidado tu contraseña?</a>
+         <a href="#/account" class="crear_cuent">Crear una cuenta</a>
+
+    </div>
+
+
+<!-- 
 <div class="container">
 
     <h1 class="page-header" style="text-align:center;">Login docente</h1>
@@ -61,7 +93,9 @@
     </form>
     </div>
 
-</div>
+</div>-->
+
+
 <!--
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
