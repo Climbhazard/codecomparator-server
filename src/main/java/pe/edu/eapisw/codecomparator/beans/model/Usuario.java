@@ -5,8 +5,22 @@ import java.io.Serializable;
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 7745777303227616952L;
+	private Integer id;
 	private String usuario;
 	private String password;
+	private Docente docente;
+	
+	public Usuario(){
+		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getUsuario() {
 		return usuario;
@@ -36,4 +50,12 @@ public class Usuario implements Serializable {
 		return false;
 	}
 
+	public Docente getDocente() {
+		return docente;
+	}
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
+	}
+	
 }
