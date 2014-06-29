@@ -16,18 +16,17 @@ public class AccountController {
 
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@RequestMapping("/layout")
-    public String getLayout() {
-        return "account/layout";
-       
-    }
-	
-	@RequestMapping(value = "/registrardocente", method= RequestMethod.POST)
-	//@ResponseStatus(HttpStatus.ACCEPTED)
+	public String getLayout() {
+		return "account/layout";
+
+	}
+
+	@RequestMapping(value = "/registrardocente", method = RequestMethod.POST)
 	@ResponseBody
 	public void registrarDocente(@RequestBody Usuario usuario) {
-		System.out.println("registrarDocente");
+		System.out.println("AccountController.registrarDocente()");
 		usuarioService.crearCuentaDocente(usuario);
 	}
 

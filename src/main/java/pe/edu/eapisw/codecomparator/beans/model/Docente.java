@@ -5,6 +5,7 @@ public class Docente extends Usuario {
 
 	private static final long serialVersionUID = -9006610970991568315L;
 	private String docenteId; // código del docente
+	private String codigo;
 	private String nombre;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
@@ -15,6 +16,14 @@ public class Docente extends Usuario {
 
 	public void setDocenteId(String docenteId) {
 		this.docenteId = docenteId;
+	}
+	
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNombre() {
