@@ -43,7 +43,7 @@
             <div class="col-md-12 form-group">
                 <label>Nombre</label>
 
-                <input type="text" name="t_nombre" class="form-control">
+                <input type="text" name="t_nombre" class="form-control" ng-model="datos.nombres">
 
             </div>
 
@@ -52,7 +52,7 @@
             <div class="col-md-12 form-group">
                 <label>Apellido paterno</label>
 
-                <input type="text" name="t_apellido_paterno" class="form-control">
+                <input type="text" name="t_apellido_paterno" class="form-control" ng-model="datos.apPaterno">
 
             </div>
 
@@ -61,14 +61,14 @@
             <div class="col-md-12 form-group">
                 <label>Apellido materno</label>
 
-                <input type="text" name="t_apellido_materno" class="form-control">
+                <input type="text" name="t_apellido_materno" class="form-control" ng-model="datos.apMaterno">
 
             </div>
         </div>
         <div class="row">
             <div id="usuar" class="col-md-12 form-group">
                 <label>Usuario</label>
-                <input type="text" name="t_usuario" class="form-control">
+                <input type="text" name="t_usuario" class="form-control" ng-model="datos.user">
                 <span id="message_usuario" style="display:none;color:#b94a48;"></span>
             </div>
 
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-md-12 form-group">
                 <label>Contraseña</label>
-                <input type="password" name="t_password" class="form-control">
+                <input type="password" name="t_password" class="form-control" ng-model="datos.pass">
             </div>
 
         </div>
@@ -84,7 +84,7 @@
             <div id="confir_clave" class="col-md-12 form-group">
                 <label>Confirmar contraseña</label>
 
-                <input type="password" name="rep_password" class="form-control">
+                <input type="password" name="rep_password" class="form-control" ng-model="datos.passAgain">
 
                 <span id="message_clave" style="display:none;color:#b94a48;"></span>
             </div>
@@ -92,7 +92,7 @@
 
         <hr>
         <div class="form-actions" style="text-align: center;">
-            <button class="btn btn-primary left" id="save_med">Registrar</button>
+            <button class="btn btn-primary left" id="save_med" ng-click="registrardocente()">Registrar</button>
         </div>
     </form>
 
