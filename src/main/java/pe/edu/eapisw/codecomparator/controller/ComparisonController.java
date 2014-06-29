@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.crsh.shell.impl.command.system.repl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,11 +38,11 @@ public class ComparisonController {
 
 		ContainerResult containerResult = new ContainerResult();
 
-		// posici贸n contra las que dem谩s se comparar谩n
+		// posici髇 contra las que dem醩 se comparar醤
 		Posicion primeraPosicion = ((ArrayList<Posicion>) contenedor
 				.getPosiciones()).get(0);
 
-		// retiramos la primera posici贸n de la colecci贸n de posiciones
+		// retiramos la primera posici贸n de la colecci髇 de posiciones
 		contenedor.getPosiciones().remove(primeraPosicion);
 
 		// posiciones restantes
