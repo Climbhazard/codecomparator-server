@@ -57,44 +57,6 @@ public class ComparisonController {
 		}
 
 		return containerResult;
-		// try {
-		// if (contenedor.getPosiciones().size() == 2) {
-		//
-		// ArrayList<Posicion> posiciones = (ArrayList<Posicion>) contenedor
-		// .getPosiciones();
-		// Posicion posicion1 = posiciones.get(0);
-		// Proyecto proyecto1 = posicion1.getProyecto();
-		// Posicion posicion2 = posiciones.get(1);
-		// Proyecto proyecto2 = posicion2.getProyecto();
-		//
-		// ArrayList<ContainerChartResult> containerCharResult =
-		// (ArrayList<ContainerChartResult>) comparisonService
-		// .comparisionProject(proyecto1, proyecto2);
-		// System.out.println("size: " + containerCharResult.size());
-		// for (int i = 0; i < containerCharResult.size(); i++) {
-		// //
-		// System.out.println(containerCharResult.get(i).getNameFirstProyect());
-		// //
-		// System.out.println(containerCharResult.get(i).getNameSecondProyect());
-		// System.out.println(containerCharResult.get(i).getFdtw());
-		// //
-		// System.out.println(containerCharResult.get(i).getCodeFirstProyect().getContenido());
-		// //
-		// System.out.println(containerCharResult.get(i).getCodeSecondProyect().getContenido());
-		// //
-		// System.out.println(containerCharResult.get(i).getCodeFirstProyect().getQ());
-		// //
-		// System.out.println(containerCharResult.get(i).getCodeSecondProyect().getQ());
-		//
-		// }
-		// containerResult.setCharResults(containerCharResult);
-		// return containerResult;
-		//
-		// }
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
-		// return null;
 	}
 
 	@RequestMapping("/layout")

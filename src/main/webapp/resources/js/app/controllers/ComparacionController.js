@@ -12,10 +12,10 @@ var ComparacionController = function($scope, $http, $location) {
 	$scope.botonReporte = 0;
 
 	$scope.tiposComparacion = [ {
-		llave : 'Comparaciï¿½n de adyacencia',
+		llave : 'Comparación de adyacencia',
 		valor : 1
 	}, {
-		llave : 'Comparaciï¿½n de 1 con varios',
+		llave : 'Comparación de 1 con varios',
 		valor : 2
 	} ];
 	// por defecto Comparaciï¿½n de adyacencia

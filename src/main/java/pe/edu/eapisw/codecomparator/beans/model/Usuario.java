@@ -9,9 +9,8 @@ public class Usuario implements Serializable {
 	private String usuario;
 	private String password;
 	private Docente docente;
-	
-	public Usuario(){
-		
+
+	public Usuario() {
 	}
 
 	public Usuario(String u, String p){
@@ -62,5 +61,5 @@ public class Usuario implements Serializable {
 	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
-	
+
 }
