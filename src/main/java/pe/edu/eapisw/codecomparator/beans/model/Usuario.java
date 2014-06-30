@@ -14,6 +14,11 @@ public class Usuario implements Serializable {
 		
 	}
 
+	public Usuario(String u, String p){
+		this.usuario = u;
+		this.password = p;
+	}
+	
 	public int getId() {
 		return id;
 	}
