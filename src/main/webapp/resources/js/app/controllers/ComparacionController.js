@@ -71,9 +71,10 @@ var ComparacionController = function($scope, $http, $location) {
 		var opcion = new Date(evaluacion.fechaRegistro)
 				.customFormat("#DD#/#MM#/#YY#")
 				+ ' : '
-				+ evaluacion.curso.nombre
+				+ evaluacion.curso
 				+ ' - Grupo '
-				+ evaluacion.curso.grupo + " : " + evaluacion.descripcion;
+				+ evaluacion.grupo
+				+ " : " + evaluacion.titulo;
 		return opcion;
 	};
 
@@ -115,8 +116,6 @@ var ComparacionController = function($scope, $http, $location) {
 		if ($scope.elegidos.indexOf(posicion) != -1) {
 			return;
 		}
-		console.log('index');
-		console.log(idElegido);
 		$('#' + idElegido).css({
 			'background-color' : 'brown'
 		});

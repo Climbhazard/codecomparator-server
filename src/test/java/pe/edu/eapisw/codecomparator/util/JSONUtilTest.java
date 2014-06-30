@@ -87,16 +87,18 @@ public class JSONUtilTest {
 	public void foo() throws IOException { // generar el json de un objeto
 											// Evaluacion
 		Alumno uno = new Alumno();
-		uno.setAlumnoId("10200196");
-		uno.setNombre("Braulio");
-		uno.setApellidoPaterno("Sánchez");
-		uno.setApellidoMaterno("Vinces");
+		uno.setN_alumno_id(1);
+		uno.setT_codigo("10200196");
+		uno.setT_nombre("Braulio");
+		uno.setT_apellido_paterno("Sánchez");
+		uno.setT_apellido_materno("Vinces");
 
 		Alumno tres = new Alumno();
-		tres.setAlumnoId("10200218");
-		tres.setNombre("María Alejandra");
-		tres.setApellidoPaterno("Gómez");
-		tres.setApellidoMaterno("Casani");
+		tres.setN_alumno_id(2);
+		tres.setT_codigo("10200218");
+		tres.setT_nombre("Alejandra");
+		tres.setT_apellido_paterno("Gómez");
+		tres.setT_apellido_materno("Casani");
 
 		// poblaremos Codigo con datos reales
 		BufferedReader reader = new BufferedReader(new FileReader(
@@ -110,6 +112,9 @@ public class JSONUtilTest {
 		Codigo codigo = new Codigo();
 		codigo.setContenido(contenido);
 		codigo.setNombre("Foo.java");
+		codigo.setQ(new Double[] { 0.0, 0.0123, 0.256, 0.0, 0.145, 0.0214, 0.0,
+				0.0, 0.236, 0.365, 0.258, 0.0, 0.0, 0.1, 0.154, 0.36, 0.456,
+				0.0, 0.14, 0.025, 0.325 });
 
 		Paquete paquete = new Paquete();
 		paquete.setNombre("foo");
@@ -147,9 +152,12 @@ public class JSONUtilTest {
 		curso.setNombre("Algorítmica II");
 
 		Evaluacion evaluacion = new Evaluacion();
-		evaluacion.setEvaluacionId(1);
-		evaluacion.setCurso(curso);
-		evaluacion.setDescripcion("Punteros");
+		evaluacion.setN_evaluacion_id(1);
+		evaluacion.setCurso(curso.getNombre());
+		evaluacion.setGrupo(String.valueOf(2));
+		evaluacion.setTitulo("Punteros");
+		evaluacion.setDescripcion("Una práctica muy sencilla");
+		evaluacion.setTiempo("00:05:00");
 		evaluacion.setFechaRegistro(new java.util.Date());
 		evaluacion.setMatriz(matriz);
 
