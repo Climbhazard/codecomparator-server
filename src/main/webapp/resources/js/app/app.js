@@ -32,6 +32,11 @@ App.config([ '$routeProvider', function($routeProvider) {
         templateUrl : 'resultados/layout',
         controller : ResultadosController
     });
+
+    $routeProvider.when('/historial', {
+        templateUrl : 'historial/layout',
+        controller : ResultadosController
+    });
     
     $routeProvider.when('/cambiarPass', {
         templateUrl : 'cambiarPass/layout',

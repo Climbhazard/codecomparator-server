@@ -1,6 +1,5 @@
 package pe.edu.eapisw.codecomparator.beans.model;
 
-import java.util.Collection;
 
 public class Docente extends Usuario {
 
@@ -10,8 +9,6 @@ public class Docente extends Usuario {
 	private String nombre;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
-	private Collection<Curso> cursos;
-	private Collection<Alumno> alumnos;
 
 	public String getDocenteId() {
 		return docenteId;
@@ -20,7 +17,7 @@ public class Docente extends Usuario {
 	public void setDocenteId(String docenteId) {
 		this.docenteId = docenteId;
 	}
-
+	
 	public String getCodigo() {
 		return codigo;
 	}
@@ -51,22 +48,6 @@ public class Docente extends Usuario {
 
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
-	}
-
-	public Collection<Curso> getCursos() {
-		return cursos;
-	}
-
-	public void setCursos(Collection<Curso> cursos) {
-		this.cursos = cursos;
-	}
-
-	public Collection<Alumno> getAlumnos() {
-		return alumnos;
-	}
-
-	public void setAlumnos(Collection<Alumno> alumnos) {
-		this.alumnos = alumnos;
 	}
 
 }
