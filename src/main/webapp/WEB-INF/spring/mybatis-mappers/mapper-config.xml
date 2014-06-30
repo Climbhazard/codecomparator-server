@@ -16,4 +16,17 @@
 			value="pe.edu.eapisw.codecomparator.persistence.DocenteMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+	
+	<bean id="cursoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface"
+			value="pe.edu.eapisw.codecomparator.persistence.CursoMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="alumnoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface"
+			value="pe.edu.eapisw.codecomparator.persistence.AlumnoMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
 </beans>

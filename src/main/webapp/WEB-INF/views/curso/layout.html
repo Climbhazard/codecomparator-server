@@ -51,12 +51,12 @@
         
 
     	<h1 class="page-header">Registrar curso</h1>
-    	<form class="form-horizontal well" action="" method="post" role="form">
+    	<form class="form-horizontal well" >
     	<div class="row form-group">
     		<div class="col-md-6">
 					<label class="col-md-5 control-label">Nombre del curso</label>
 					<div class="col-md-7">
-						<input type="text" name="t_nombre" class="form-control">
+						<input type="text" name="t_nombre" class="form-control" ng-model="datos.nombre">
 					</div>
 				</div>
     		
@@ -65,7 +65,7 @@
     		<div class="col-md-6">
 					<label class="col-md-5 control-label">N° de Grupo</label>
 					<div class="col-md-3">
-						<select id="tipo_doc" name="n_grupo" class="form-control">
+						<select id="tipo_doc" name="n_grupo" class="form-control" ng-model="datos.grupo">
                           <option>01</option>
                           <option>02</option>
                           <option>03</option>
@@ -76,7 +76,7 @@
     	</div> 
     	<hr>
     	<div class="form-actions" style="text-align: center;">
-            <button type="submit" class="btn btn-primary left">Guardar</button>
+            <button class="btn btn-primary left" ng-click="registrarcurso()">Guardar</button>
             <button type="reset" class="btn btn-default left">Cancelar</button>
         </div>
 
