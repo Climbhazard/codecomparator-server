@@ -2,116 +2,124 @@
 <!-- <div>account</div>-->
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">CodeComparator</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">CodeComparator</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
 
-                <a href="#" class="btn btn-danger" style="margin-top: 8px;">Iniciar Sesión</a>
+				<a href="#" class="btn btn-danger" style="margin-top: 8px;">Iniciar
+					Sesión</a>
 
-            </ul>
+			</ul>
 
-        </div>
-    </div>
+		</div>
+	</div>
 </div>
 
 
 
 <div class="container">
 
-    <h1 class="page-header" style="text-align:center;">Crear cuenta de usuario</h1>
+	<h1 class="page-header" style="text-align: center;">Crear cuenta
+		de usuario</h1>
 
-    <form class="form well" id="crearDocent" >
+	<form class="form well" id="crearDocent">
 
-         <div>
-        
-        <div class="row">
-            <div id="cod_doc" class="col-md-12 form-group">
-                <label>Código</label>
+		<div>
 
-                <input type="text" name="t_codigo" class="form-control" ng-model="datos.codigo">
-                <span id="message_cod" style="display:none;color:#b94a48;"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label>Nombre</label>
+			<div class="row">
+				<div id="cod_doc" class="col-md-12 form-group">
+					<label>Código</label> <input type="text" name="t_codigo"
+						class="form-control" ng-model="datos.codigo"> <span
+						id="message_cod" style="display: none; color: #b94a48;"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<label>Nombre</label> <input type="text" name="t_nombre"
+						class="form-control" ng-model="datos.nombres">
 
-                <input type="text" name="t_nombre" class="form-control" ng-model="datos.nombres">
+				</div>
 
-            </div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<label>Apellido paterno</label> <input type="text"
+						name="t_apellido_paterno" class="form-control"
+						ng-model="datos.apPaterno">
 
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label>Apellido paterno</label>
+				</div>
 
-                <input type="text" name="t_apellido_paterno" class="form-control" ng-model="datos.apPaterno">
+			</div>
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<label>Apellido materno</label> <input type="text"
+						name="t_apellido_materno" class="form-control"
+						ng-model="datos.apMaterno">
 
-            </div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="usuar" class="col-md-12 form-group">
+					<label>Usuario</label> <input type="text" name="t_usuario"
+						class="form-control" ng-model="datos.user"> <span
+						id="message_usuario" style="display: none; color: #b94a48;"></span>
+				</div>
 
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label>Apellido materno</label>
+			</div>
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<label>Contraseña</label> <input type="password" name="t_password"
+						class="form-control" ng-model="datos.pass">
+				</div>
 
-                <input type="text" name="t_apellido_materno" class="form-control" ng-model="datos.apMaterno">
+			</div>
+			<div class="row">
+				<div id="confir_clave" class="col-md-12 form-group">
+					<label>Confirmar contraseña</label> <input type="password"
+						name="rep_password" class="form-control"
+						ng-model="datos.passAgain"> <span id="message_clave"
+						style="display: none; color: #b94a48;"></span>
+				</div>
+			</div>
 
-            </div>
-        </div>
-        <div class="row">
-            <div id="usuar" class="col-md-12 form-group">
-                <label>Usuario</label>
-                <input type="text" name="t_usuario" class="form-control" ng-model="datos.user">
-                <span id="message_usuario" style="display:none;color:#b94a48;"></span>
-            </div>
+			<hr>
+			<div class="form-actions" style="text-align: center;">
+				<button class="btn btn-primary left" id="save_med"
+					ng-click="registrardocente()">Registrar</button>
+			</div>
 
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label>Contraseña</label>
-                <input type="password" name="t_password" class="form-control" ng-model="datos.pass">
-            </div>
+		</div>
 
-        </div>
-        <div class="row">
-            <div id="confir_clave" class="col-md-12 form-group">
-                <label>Confirmar contraseña</label>
 
-                <input type="password" name="rep_password" class="form-control" ng-model="datos.passAgain">
+	</form>
 
-                <span id="message_clave" style="display:none;color:#b94a48;"></span>
-            </div>
-        </div>
+	<div ng-show="msgCompleta==1"
+		class="alert alert-warning alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>¡Atención!</strong> {{msgCompletaData}}
+	</div>
 
-        <hr>
-        <div class="form-actions" style="text-align: center;">
-            <button class="btn btn-primary left" id="save_med" ng-click="registrardocente()">Registrar</button>
-        </div>
-        
-          </div>
-         
-   
-    </form>
- 
-          <div ng-show="msgCompleta==1" class="alert alert-warning alert-dismissible" role="alert" style="margin-top: -762px;width: 368px;margin-left: 873px;">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  <strong>Atención!</strong> {{msgCompletaData}}
-</div>
+	<div ng-show="msgCompleta==2"
+		class="alert alert-success alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>Información</strong> {{msgLoggedData}}
+	</div>
 
- <div ng-show="msgCompleta==2" class="alert alert-success alert-dismissible" role="alert" style="margin-top: -762px;width: 368px;margin-left: 873px;">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  <strong>Atención!</strong> {{msgLoggedData}}
-</div>
-  
 
 </div>
 <!-- 

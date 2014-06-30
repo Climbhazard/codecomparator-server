@@ -6,13 +6,14 @@
  * @constructor
  */
 
-var LoginController = function($scope, $http) {
+var LoginController = function($scope, $http, $location) {
 
 	// $scope.datos = {};
 	$scope.user = {};
+	// $scope.msjUsuarioIncorrecto = 'Usuario incorrecto';
+	// $scope.mensaje = -1;
 
 	$scope.validar = function() {
-		console.log($scope.user);
 		if ($scope.user == undefined || $scope.user.password == undefined
 				|| $scope.user.usuario == undefined
 				|| $scope.user.usuario == '' || $scope.user.password == '') {
@@ -25,14 +26,11 @@ var LoginController = function($scope, $http) {
 	$scope.loginDocente = function() {
 
 		var state = false;
-		console.log($scope.user);
 		state = $scope.validar();
 		if (state) {
-			console.log('login');
 			$scope.loginService();
 		} else {
-			console.log('bye bye');
-
+			alert('¡Complete todos los campos!');
 		}
 
 		/*
@@ -48,21 +46,17 @@ var LoginController = function($scope, $http) {
 
 		$http.post('login/docente', $scope.user).success(function(docente) {
 			$scope.userVerified = docente;
-			console.log($scope.userVerified);
+			if ($scope.userVerified != '') {
+				$location.path('/comparacion');
+			} else {
+				// $scope.mensaje = 1;
+				alert('Usuario incorrecto');
+				$scope.user = {};
+			}
+			console.log($scope.userVerified == '');
+		}).error(function() {
+			console.log("Error en el servidor");
 		});
-
-		/*
-		 * console.log('LoginController.loginDocente');
-		 * $http.post('login/docente', $scope.user).success(function(usuario) {
-		 * $scope.user = usuario;
-		 * 
-		 * console.log($scope.user.id); console.log($scope.user.usuario);
-		 * console.log($scope.user.password); if ($scope.user != null) {
-		 * console.log("logged"); // $scope.url = "inicio"; } else {
-		 * console.log("not valide user"); // $scope.url = "login"; }
-		 * 
-		 * }).error(function() { console.log('Error desde el servidor'); });
-		 */
 
 	};
 
