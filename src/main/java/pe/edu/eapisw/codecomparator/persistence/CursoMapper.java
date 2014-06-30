@@ -1,17 +1,29 @@
 package pe.edu.eapisw.codecomparator.persistence;
 
-import java.util.Collection;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import pe.edu.eapisw.codecomparator.beans.model.Curso;
 
 public interface CursoMapper {
 
-	@Select("SELECT curso.n_curso_id AS cursoId, curso.t_nombre AS nombre, curso.n_grupo AS grupo "
-			+ "FROM `curso`, docente WHERE docente.t_codigo = #{codigo} AND docente.n_docente_id = curso.n_docente_id ")
-	public Collection<Curso> getAllCursosByDocente(
-			@Param("codigo") String codigo);
+	@Insert("INSERT INTO curso(t_nombre,n_grupo,n_docente_id) "
+			+ "VALUES (#{nombre}, #{grupo},#{ndocenteid})")
+	public void registrarCurso(@Param("nombre") String nombre,
+			@Param("grupo") String grupo,
+			@Param("ndocenteid") Integer ndocenteid);
+
+	@Select(value = "SELECT n_curso_id, t_nombre, n_grupo, n_docente_id, "
+			+ "FROM curso where n_docente_id = #{ndocenteid}")
+	@Results(value = { @Result(column = "n_curso_id", property = "cursoId"),
+			@Result(column = "t_nombre", property = "nombre"),
+			@Result(column = "t_grupo", property = "grupo"),
+			@Result(column = "n_docente_id", property = "docente.docenteId") })
+	List<Curso> allCursos(@Param("ndocenteid") Integer ndocenteid);
 
 }

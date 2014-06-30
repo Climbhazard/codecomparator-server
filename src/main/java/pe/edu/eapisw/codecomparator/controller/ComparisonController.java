@@ -43,7 +43,7 @@ public class ComparisonController {
 		Posicion primeraPosicion = ((ArrayList<Posicion>) contenedor
 				.getPosiciones()).get(0);
 
-		// retiramos la primera posiciÃ³n de la colección de posiciones
+		// retiramos la primera posición de la colección de posiciones
 		contenedor.getPosiciones().remove(primeraPosicion);
 
 		// posiciones restantes

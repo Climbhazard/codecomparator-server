@@ -5,6 +5,7 @@
 
 	<!-- <bean id="usuarioMapper" parent="baseMapper"> <property name="mapperInterface" 
 		value="pe.edu.eapisw.codecomparator.persistence.UsuarioMapper" /> </bean> -->
+
 	<bean id="usuarioMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
 			value="pe.edu.eapisw.codecomparator.persistence.UsuarioMapper" />
@@ -26,6 +27,13 @@
 	<bean id="evaluacionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
 			value="pe.edu.eapisw.codecomparator.persistence.EvaluacionMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+
+	<bean id="alumnoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface"
+			value="pe.edu.eapisw.codecomparator.persistence.AlumnoMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 

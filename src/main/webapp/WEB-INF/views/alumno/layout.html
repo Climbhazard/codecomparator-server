@@ -1,34 +1,49 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#/inicio">CodeComparator</a>
-		</div>
-		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/comparacion">CodeComparator</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#/inicio">Inicio</a></li>
+         
+          <li>
+          <a href="#/alumno"><div title="Registro de alumnos">Alumno</div></a>          
+          </li>
+          
+          <li>
+          <a href="#/curso"><div title="Registro de cursos">Curso</div></a>          
+          </li>
+                     
+          <li><a href="#/comparacion"><div title="Comparación de proyectos">Comparación de Proyectos</div></a>
+             
+          </li>
+          <li><a href="#/historial"><div title="Ver historial de comparaciones">Historiales</div></a></li>
 
-				<li class="dropdown"><a href="#" id="perfil"
-					class="dropdown-toggle" data-toggle="dropdown"> Fanny Sobero<b
-						class="caret"></b>
-				</a>
-
-					<ul class="dropdown-menu">
-						<li><a href="#/cambiarPass">Cambiar contraseï¿½a</a></li>
-
-						<li><a href="#/login">Cerrar Sesiï¿½n</a></li>
-					</ul></li>
-			</ul>
-
-		</div>
-		<!--/.navbar-collapse -->
-	</div>
-</div>
+        </ul>
+         <ul class="nav navbar-nav navbar-right">
+          
+          <li class="dropdown">
+                  <a href="#" id="email" class="dropdown-toggle" data-toggle="dropdown">Xtreme<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/cambiarPass">Cambiar contraseña</a></li>
+                                
+                                <li><a href="#/login">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+         </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+    
+    
 
 
 <div class="container">
@@ -60,7 +75,7 @@
 			<div class="col-md-6">
 				<label class="col-md-5 control-label">Código</label>
 				<div class="col-md-7">
-				<input type="text" id="codigo" name="t_codigo" class="form-control">
+				<input type="text" id="codigo" name="t_codigo" class="form-control" ng-model="datos.codigo"> 
 			</div>
 
 			</div>
@@ -70,7 +85,7 @@
 			 <div class="col-md-6">
            	 <label class="col-md-5 control-label">Nombre</label>
            	 <div class="col-md-7">
-           	 	<input type="text" id="nombre" name="t_nombre" class="form-control">
+           	 	<input type="text" id="nombre" name="t_nombre" class="form-control" ng-model="datos.nombre">
            	 </div>
            </div>
            
@@ -79,7 +94,7 @@
        <div class="col-md-6">
              <label class="col-md-5 control-label">Apellido paterno</label>
              <div class="col-md-7">
-              <input type="text" id="ap_paterno" name="t_apellido_paterno" class="form-control">
+              <input type="text" id="ap_paterno" name="t_apellido_paterno" class="form-control" ng-model="datos.apelldoPaterno">
              </div>
            </div>
            
@@ -88,30 +103,44 @@
     	<div class="col-md-6">
              <label class="col-md-5 control-label">Apellido materno</label>
              <div class="col-md-7">
-              <input type="text" id="ap_materno" name="t_apellido_materno" class="form-control">
+              <input type="text" id="ap_materno" name="t_apellido_materno" class="form-control" ng-model="datos.apellidoMaterno">
              </div>
            </div>
     </div>
 		<hr>
 		<div class="form-actions" style="text-align: center;">
-            <a href="#" id="save_alum" class="btn btn-primary left">Guardar</a>
+            <a href="#" id="save_alum" class="btn btn-primary left" ng-click="registraralumno()">Guardar</a>
             <button type="reset" class="btn btn-default left">Cancelar</button>
         </div>
 
 		</div>
 		
-        <div class="alert alert-success">
+        <!-- <div class="alert alert-success">
    <strong style="display: block;text-align: center;">Registro exitoso</strong>
-    </div>
+    </div>-->
 		</form>	
 		<br>
 		<div id="list_alumnos">
 			
 
 		</div>
-
 		
-    
-	
+		<div ng-show="showMsg==1"
+		class="alert alert-warning alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>¡Atención!</strong> {{msg1}}
+	</div>
 
-    </div>
+	<div ng-show="showMsg==2"
+		class="alert alert-success alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>Información</strong> {{msg2}}
+	</div>
+
+</div>
