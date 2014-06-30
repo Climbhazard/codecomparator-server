@@ -12,9 +12,10 @@ import pe.edu.eapisw.codecomparator.beans.json.Evaluacion;
 import pe.edu.eapisw.codecomparator.beans.json.Paquete;
 import pe.edu.eapisw.codecomparator.beans.json.Proyecto;
 import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;
-import pe.edu.eapisw.codecomparator.beans.model.Curso;
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
+import pe.edu.eapisw.codecomparator.persistence.CursoMapper;
 import pe.edu.eapisw.codecomparator.persistence.DropboxClient;
+import pe.edu.eapisw.codecomparator.persistence.EvaluacionMapper;
 import pe.edu.eapisw.codecomparator.service.ComparisonService;
 import pe.edu.eapisw.codecomparator.service.core.fdtw.FDTW;
 import pe.edu.eapisw.codecomparator.util.JSONUtil;
@@ -27,6 +28,10 @@ public class ComparisonServiceImpl implements ComparisonService {
 	private JSONUtil jsonUtil = new JSONUtil();
 
 	@Autowired
+	private CursoMapper cursoMapper;
+	@Autowired
+	private EvaluacionMapper evaluacionMapper;
+	@Autowired
 	private DropboxClient dropboxUploader;
 
 	private Codigo code2 = new Codigo();
@@ -36,24 +41,39 @@ public class ComparisonServiceImpl implements ComparisonService {
 	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
 		evaluaciones.clear();
 		// simulo traer un todos los cursos del docente
-		Curso algoritmica = new Curso();
-		algoritmica.setCursoId(1);
-		algoritmica.setGrupo(2);
-		algoritmica.setNombre("Algorítmica II");
 
-		// traigo todas las evaluaciones de este curso
-		Evaluacion eva1 = new Evaluacion();
-		eva1.setEvaluacionId(1);
-		eva1.setCurso(algoritmica);
-		List<Evaluacion> evs = new ArrayList<Evaluacion>();
-		evs.add(eva1);
+		// Collection<Curso> cursosDocente = cursoMapper
+		// .getAllCursosByDocente(docente.getCodigo());
+
+		// Collection<Evaluacion> evaluacionesDocente = new
+		// ArrayList<Evaluacion>();
+		// Collection<Evaluacion> evaluacionCurso = null;
+		// for (Curso curso : cursosDocente) {
+		// evaluacionCurso = evaluacionMapper.getAllEvaluacionesByCurso(curso);
+		// evaluacionesDocente.addAll(evaluacionCurso);
+		// }
+
+		Collection<Evaluacion> evaluacionesDocente = evaluacionMapper
+				.getAllEvaluacionesByDocente(docente);
+
+		// Curso algoritmica = new Curso();
+		// algoritmica.setCursoId(1);
+		// algoritmica.setGrupo(String.valueOf(2));
+		// algoritmica.setNombre("Algorítmica II");
+		//
+		// // traigo todas las evaluaciones de este curso
+		// Evaluacion eva1 = new Evaluacion();
+		// eva1.setEvaluacionId(1);
+		// eva1.setCurso(algoritmica.getNombre());
+		// List<Evaluacion> evs = new ArrayList<Evaluacion>();
+		// evs.add(eva1);
 
 		String docenteId = "/" + docente.getDocenteId();
 		String nombreCurso;
 		String evaluacionId;
 		String srcFilename;
-		for (Evaluacion evaluacion : evs) {
-			nombreCurso = "/" + evaluacion.getCurso().getNombre();
+		for (Evaluacion evaluacion : evaluacionesDocente) {
+			nombreCurso = "/" + evaluacion.getCurso()/* .getNombre() */;
 			evaluacionId = "/" + String.valueOf(evaluacion.getEvaluacionId());
 			srcFilename = docenteId + nombreCurso + evaluacionId + ".json";
 

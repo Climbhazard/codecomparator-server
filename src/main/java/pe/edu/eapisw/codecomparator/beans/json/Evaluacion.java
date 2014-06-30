@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-import pe.edu.eapisw.codecomparator.beans.model.Curso;
+import pe.edu.eapisw.codecomparator.beans.model.Docente;
 
 public class Evaluacion implements Serializable {
 
@@ -13,12 +13,23 @@ public class Evaluacion implements Serializable {
 	private String titulo;// en lugar de descripcion al momento de mostralo en
 							// la interfaz
 	private String descripcion;
-	private String duracion;// duración de la evaluación
-	private Date horaInicio;// eliminar
-	private Date horaFin;// eliminar
+	private String tiempo;// duración de la evaluación
+	// private Date horaInicio;// eliminar
+	// private Date horaFin;// eliminar
 	private Date fechaRegistro;
-	private Curso curso;
+	// private Curso curso;
+	private String curso;
+	private String grupo;
+	private Docente docente;
 	private Collection<Posicion> matriz;
+
+	public Docente getDocente() {
+		return docente;
+	}
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -28,12 +39,8 @@ public class Evaluacion implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public String getDuracion() {
-		return duracion;
-	}
-
-	public void setDuracion(String duracion) {
-		this.duracion = duracion;
+	public void setTiempo(String tiempo) {
+		this.tiempo = tiempo;
 	}
 
 	public Integer getEvaluacionId() {
@@ -52,21 +59,21 @@ public class Evaluacion implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Date getHoraInicio() {
-		return horaInicio;
-	}
-
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
-	}
-
-	public Date getHoraFin() {
-		return horaFin;
-	}
-
-	public void setHoraFin(Date horaFin) {
-		this.horaFin = horaFin;
-	}
+	// public Date getHoraInicio() {
+	// return horaInicio;
+	// }
+	//
+	// public void setHoraInicio(Date horaInicio) {
+	// this.horaInicio = horaInicio;
+	// }
+	//
+	// public Date getHoraFin() {
+	// return horaFin;
+	// }
+	//
+	// public void setHoraFin(Date horaFin) {
+	// this.horaFin = horaFin;
+	// }
 
 	public Date getFechaRegistro() {
 		return fechaRegistro;
@@ -76,16 +83,36 @@ public class Evaluacion implements Serializable {
 		this.fechaRegistro = fechaRegistro;
 	}
 
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
+	// public Curso getCurso() {
+	// return curso;
+	// }
+	//
+	// public void setCurso(Curso curso) {
+	// this.curso = curso;
+	// }
 
 	public Collection<Posicion> getMatriz() {
 		return matriz;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public String getTiempo() {
+		return tiempo;
 	}
 
 	public void setMatriz(Collection<Posicion> matriz) {
