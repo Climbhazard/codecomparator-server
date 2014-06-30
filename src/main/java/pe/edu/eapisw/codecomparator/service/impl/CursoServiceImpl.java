@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.eapisw.codecomparator.beans.model.Curso;
-import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.persistence.CursoMapper;
 import pe.edu.eapisw.codecomparator.service.CursoService;
 
@@ -23,13 +22,14 @@ public class CursoServiceImpl implements CursoService {
 	}
 
 	@Override
-	public List<Curso> allCursos(Docente docente) {
+	public List<Curso> allCursos(String docenteId) {
 		
-		Integer docenteId = 0;
-		if(docente.getDocenteId()!=null){
-			docenteId = Integer.parseInt(docente.getDocenteId());
+		Integer docenteIdInt = 0;
+		if(docenteId!=null){
+			docenteIdInt = Integer.parseInt(docenteId);
 		}		
-		return cursoMapper.allCursos(docenteId);
+		//return cursoMapper.allCursos(docenteIdInt);
+		return null;
 	}
 	
 	

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * AccountController
+ * AlumnoController
  *
  * @constructor
  */
@@ -61,6 +61,18 @@ var AlumnoController = function($scope, $http) {
     
     	
     };
+    
+    $scope.getAllCursos = function(){
+    	$scope.docente = {};
+    	$scope.docente.docenteId = "2";
+    	  $http.get('curso/lista/'+$scope.docente.docenteId).success(function(workers){
+              console.log('getAllCursos');
+              console.log(workers);
+    	  });
+
+    };
+    
+    $scope.getAllCursos();
 
     
 

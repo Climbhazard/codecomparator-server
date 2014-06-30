@@ -7,5 +7,7 @@
  */
 var ResultadosController = function($scope, $http) {
 
+	console.log("resultadosController");
+	
     
 };
