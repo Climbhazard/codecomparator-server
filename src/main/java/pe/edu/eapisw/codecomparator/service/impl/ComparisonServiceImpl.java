@@ -38,7 +38,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 		// simulo traer un todos los cursos del docente
 		Curso algoritmica = new Curso();
 		algoritmica.setCursoId(1);
-		algoritmica.setGrupo(2);
+		algoritmica.setGrupo(String.valueOf(2f));
 		algoritmica.setNombre("Algorítmica II");
 
 		// traigo todas las evaluaciones de este curso
