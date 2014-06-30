@@ -51,7 +51,7 @@ App.config([ '$routeProvider', function($routeProvider) {
     $routeProvider.when('/alumno', {
         templateUrl : 'alumno/layout',
         controller : AlumnoController
-    });
+    });    
     
 	$routeProvider.otherwise({
 		redirectTo : '/inicio'
