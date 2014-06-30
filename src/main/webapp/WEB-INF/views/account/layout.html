@@ -31,6 +31,8 @@
 
     <form class="form well" id="crearDocent" >
 
+         <div>
+        
         <div class="row">
             <div id="cod_doc" class="col-md-12 form-group">
                 <label>Código</label>
@@ -94,7 +96,22 @@
         <div class="form-actions" style="text-align: center;">
             <button class="btn btn-primary left" id="save_med" ng-click="registrardocente()">Registrar</button>
         </div>
+        
+          </div>
+         
+   
     </form>
+ 
+          <div ng-show="msgCompleta==1" class="alert alert-warning alert-dismissible" role="alert" style="margin-top: -762px;width: 368px;margin-left: 873px;">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <strong>Atención!</strong> {{msgCompletaData}}
+</div>
+
+ <div ng-show="msgCompleta==2" class="alert alert-success alert-dismissible" role="alert" style="margin-top: -762px;width: 368px;margin-left: 873px;">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <strong>Atención!</strong> {{msgLoggedData}}
+</div>
+  
 
 </div>
 <!-- 
