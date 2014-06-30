@@ -1,9 +1,9 @@
 package pe.edu.eapisw.codecomparator.beans.model;
 
 
-public class Docente extends Usuario {
+public class Docente /*extends Usuario*/ {
 
-	private static final long serialVersionUID = -9006610970991568315L;
+//	private static final long serialVersionUID = -9006610970991568315L;
 	private String docenteId; // código del docente
 	private String codigo;
 	private String nombre;

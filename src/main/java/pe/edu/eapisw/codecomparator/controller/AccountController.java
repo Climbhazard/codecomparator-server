@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pe.edu.eapisw.codecomparator.beans.model.Usuario;
-import pe.edu.eapisw.codecomparator.service.UsuarioService;
+import pe.edu.eapisw.codecomparator.service.CuentaService;
 
 @Controller
 @RequestMapping("/account")
 public class AccountController {
 
 	@Autowired
-	private UsuarioService usuarioService;
+	private CuentaService cuentaService;
 
 	@RequestMapping("/layout")
 	public String getLayout() {
@@ -26,8 +26,7 @@ public class AccountController {
 	@RequestMapping(value = "/registrardocente", method = RequestMethod.POST)
 	@ResponseBody
 	public void registrarDocente(@RequestBody Usuario usuario) {
-		System.out.println("AccountController.registrarDocente()");
-		usuarioService.crearCuentaDocente(usuario);
+		cuentaService.crearCuentaDocente(usuario);
 	}
 
 }

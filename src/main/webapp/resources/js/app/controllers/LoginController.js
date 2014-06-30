@@ -10,14 +10,14 @@ var LoginController = function($scope, $http) {
 
 	// $scope.datos = {};
 	$scope.user = {};
-	
-	$scope.validar = function(){
+
+	$scope.validar = function() {
 		console.log($scope.user);
-		if($scope.user == undefined || $scope.user.password==undefined || $scope.user.usuario==undefined || 
-				$scope.user.usuario =='' || 
-				$scope.user.password == '' ){
+		if ($scope.user == undefined || $scope.user.password == undefined
+				|| $scope.user.usuario == undefined
+				|| $scope.user.usuario == '' || $scope.user.password == '') {
 			return false;
-		}else{
+		} else {
 			return true;
 		}
 	};
@@ -27,71 +27,44 @@ var LoginController = function($scope, $http) {
 		var state = false;
 		console.log($scope.user);
 		state = $scope.validar();
-		if(state){
+		if (state) {
 			console.log('login');
 			$scope.loginService();
-		}else{
+		} else {
 			console.log('bye bye');
-			
+
 		}
-		
-      /*loginService.login($scope.user).then(function(data){
-           console.log(data);
-           console.log('data');
-           $scope.user = data;
-            
-       });*/
+
+		/*
+		 * loginService.login($scope.user).then(function(data){
+		 * console.log(data); console.log('data'); $scope.user = data;
+		 * 
+		 * });
+		 */
 
 	};
-		
+
 	$scope.loginService = function() {
 
-		$http.post('login/docente', $scope.user).success(function(usuario) {
-			$scope.userVerified = usuario;
+		$http.post('login/docente', $scope.user).success(function(docente) {
+			$scope.userVerified = docente;
 			console.log($scope.userVerified);
-			if($scope.userVerified ==null){
-				console.log('null');
-			}
-			if($scope.userVerified  == undefined){
-				console.log('u');
-			}
 		});
 
-		/*console.log('LoginController.loginDocente');
-		$http.post('login/docente', $scope.user).success(function(usuario) {
-			$scope.user = usuario;
-
-			console.log($scope.user.id);
-			console.log($scope.user.usuario);
-			console.log($scope.user.password);
-			if ($scope.user != null) {
-				console.log("logged");
-				// $scope.url = "inicio";
-			} else {
-				console.log("not valide user");
-				// $scope.url = "login";
-			}
-
-		}).error(function() {
-			console.log('Error desde el servidor');
-		});
-		*/
+		/*
+		 * console.log('LoginController.loginDocente');
+		 * $http.post('login/docente', $scope.user).success(function(usuario) {
+		 * $scope.user = usuario;
+		 * 
+		 * console.log($scope.user.id); console.log($scope.user.usuario);
+		 * console.log($scope.user.password); if ($scope.user != null) {
+		 * console.log("logged"); // $scope.url = "inicio"; } else {
+		 * console.log("not valide user"); // $scope.url = "login"; }
+		 * 
+		 * }).error(function() { console.log('Error desde el servidor'); });
+		 */
 
 	};
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	/*
 	 * $scope.fetchUsuario = function() {
@@ -113,5 +86,4 @@ var LoginController = function($scope, $http) {
 	 */
 
 	// $scope.fetchUsuario();
-	
 };

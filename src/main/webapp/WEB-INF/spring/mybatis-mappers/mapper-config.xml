@@ -10,7 +10,10 @@
 			value="pe.edu.eapisw.codecomparator.persistence.UsuarioMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="pe.edu.eapisw.codecomparator.persistence"/>
-    </bean>-->
+
+	<bean id="docenteMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface"
+			value="pe.edu.eapisw.codecomparator.persistence.DocenteMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 </beans>

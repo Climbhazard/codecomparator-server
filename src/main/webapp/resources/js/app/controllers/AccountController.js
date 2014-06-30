@@ -17,7 +17,11 @@ var AccountController = function($scope, $http) {
     	
 
 		console.log($scope.datos);
-    	
+    	if($scope.datos.codigo == "" || $scope.datos.codigo == undefined){
+    		console.log('0');
+    		$scope.msgCompleta = 1;
+    		return false;
+    	}
     	if($scope.datos.nombres == "" || $scope.datos.nombres == undefined){
     		console.log('1');
     		$scope.msgCompleta = 1;
@@ -71,7 +75,7 @@ var AccountController = function($scope, $http) {
 		$scope.usuario.usuario = $scope.datos.user;
 		$scope.usuario.password = $scope.datos.pass;
 		$scope.usuario.docente = {};
-		//$scope.usuario.docente.codigo = $scope.datos.codigo;	
+		$scope.usuario.docente.codigo = $scope.datos.codigo;	
 		$scope.usuario.docente.nombre = $scope.datos.nombres;
 		$scope.usuario.docente.apellidoPaterno = $scope.datos.apPaterno;
 		$scope.usuario.docente.apellidoMaterno = $scope.datos.apMaterno;

@@ -6,14 +6,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.beans.model.Usuario;
+import pe.edu.eapisw.codecomparator.persistence.DocenteMapper;
 import pe.edu.eapisw.codecomparator.persistence.UsuarioMapper;
-import pe.edu.eapisw.codecomparator.service.UsuarioService;
+import pe.edu.eapisw.codecomparator.service.CuentaService;
 
-@Service("usuarioService")
-public class UsuarioServiceImpl implements UsuarioService {
+@Service("cuentaService")
+public class CuentaServiceImpl implements CuentaService {
 
 	@Autowired
-	public UsuarioMapper usuarioMapper;
+	private UsuarioMapper usuarioMapper;
+	@Autowired
+	private DocenteMapper docenteMapper;
 
 	@Override
 	public Usuario getUsuario() {
@@ -24,16 +27,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public Usuario loginDocente(Usuario usuario) {
-		/*
-		 * Usuario i = usuarioMapper.loginUsuario(usuario.getUsuario(),
-		 * usuario.getPassword()); System.out.println(i.getUsuario());
-		 * System.out.println(i.getPassword()); if(i==null){
-		 * System.out.println("null"); }else{
-		 * System.out.println(i.getUsuario());
-		 * System.out.println(i.getPassword());} return i;
-		 */
-		return null;
+	public Docente loginDocente(Usuario usuario) {
+
+		Docente docente = docenteMapper.loginDocente(usuario.getUsuario(),
+				usuario.getPassword());
+		return docente;
 
 	}
 
@@ -41,11 +39,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Transactional
 	public void crearCuentaDocente(Usuario usuario) {
 
-		usuarioMapper.crearDocente(usuario.getDocente().getCodigo(), usuario
+		docenteMapper.crearDocente(usuario.getDocente().getCodigo(), usuario
 				.getDocente().getNombre(), usuario.getDocente()
 				.getApellidoPaterno(), usuario.getDocente()
 				.getApellidoMaterno());
-		usuarioMapper.crearUsuario(usuario.getUsuario(), usuario.getPassword());
+		Integer docenteId = docenteMapper.getDocenteIdByCodigo(usuario
+				.getDocente().getCodigo());
+		usuarioMapper.crearUsuario(usuario.getUsuario(), usuario.getPassword(),
+				docenteId);
 
 	}
 

@@ -2,11 +2,11 @@ package pe.edu.eapisw.codecomparator.service;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.*;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.beans.model.Usuario;
 
 public class UserServiceTest {
@@ -19,15 +19,23 @@ public class UserServiceTest {
 	@Test
 	public void testWhenUserLogged() {
 		// JSONService jsonService = new JSONServiceImpl();
-		Usuario usuarioExpected = new Usuario();
-		usuarioExpected.setUsuario("oshingc");
-		usuarioExpected.setPassword("123456");
 
-		UsuarioService userService = mock(UsuarioService.class);
-		when(userService.loginDocente(usuarioExpected)).thenReturn(usuarioExpected);
-		Usuario usuarioActual = userService.loginDocente(usuarioExpected);
-		assertEquals(usuarioExpected.getUsuario(), usuarioActual.getUsuario());
-		assertEquals(usuarioExpected.getPassword(), usuarioActual.getPassword());
+		Usuario usuario = new Usuario();
+
+		Docente docenteExpected = new Docente();
+		docenteExpected.setCodigo("D010203");
+		docenteExpected.setDocenteId(String.valueOf(10));
+		docenteExpected.setNombre("Braulio");
+
+		usuario.setDocente(docenteExpected);
+		usuario.setUsuario("braulio");
+		usuario.setPassword("123qwe/");
+
+		CuentaService cuentaService = mock(CuentaService.class);
+		when(cuentaService.loginDocente(usuario)).thenReturn(docenteExpected);
+		Docente docenteActual = cuentaService.loginDocente(usuario);
+		assertEquals(usuario.getDocente().getDocenteId(),
+				docenteActual.getDocenteId());
 
 	}
 
