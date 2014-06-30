@@ -8,7 +8,9 @@ public class Usuario implements Serializable {
 	private Integer id;
 	private String usuario;
 	private String password;
-	private Docente docente;
+	private String repPassword;
+	// private Docente docente;
+	private Integer docenteId;
 
 	public Usuario() {
 	}
@@ -49,12 +51,24 @@ public class Usuario implements Serializable {
 		return false;
 	}
 
-	public Docente getDocente() {
-		return docente;
+	public Integer getDocenteId() {
+		return docenteId;
 	}
 
-	public void setDocente(Docente docente) {
-		this.docente = docente;
+	public void setDocenteId(Integer docenteId) {
+		this.docenteId = docenteId;
+	}
+
+	public String getRepPassword() {
+		return repPassword;
+	}
+
+	public void setRepPassword(String repPassword) {
+		this.repPassword = repPassword;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

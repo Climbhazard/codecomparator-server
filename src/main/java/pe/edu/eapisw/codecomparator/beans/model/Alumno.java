@@ -9,6 +9,8 @@ public class Alumno implements Serializable {
 	private String nombre;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
+	private String curso;
+	private String grupo;
 
 	public String getAlumnoId() {
 		return alumnoId;
@@ -40,6 +42,22 @@ public class Alumno implements Serializable {
 
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
 	}
 
 }

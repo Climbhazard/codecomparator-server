@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import pe.edu.eapisw.codecomparator.beans.model.Curso;
+import pe.edu.eapisw.codecomparator.beans.model.Docente;
 
 public class Evaluacion implements Serializable {
 
@@ -13,11 +14,11 @@ public class Evaluacion implements Serializable {
 	private String titulo;// en lugar de descripcion al momento de mostralo en
 							// la interfaz
 	private String descripcion;
-	private String duracion;// duración de la evaluación
-	private Date horaInicio;// eliminar
-	private Date horaFin;// eliminar
+	private String tiempo;// duración de la evaluación
+	private String grupo;
 	private Date fechaRegistro;
 	private Curso curso;
+	private Docente docente;
 	private Collection<Posicion> matriz;
 
 	public String getTitulo() {
@@ -26,14 +27,6 @@ public class Evaluacion implements Serializable {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public String getDuracion() {
-		return duracion;
-	}
-
-	public void setDuracion(String duracion) {
-		this.duracion = duracion;
 	}
 
 	public Integer getEvaluacionId() {
@@ -50,22 +43,6 @@ public class Evaluacion implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public Date getHoraInicio() {
-		return horaInicio;
-	}
-
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
-	}
-
-	public Date getHoraFin() {
-		return horaFin;
-	}
-
-	public void setHoraFin(Date horaFin) {
-		this.horaFin = horaFin;
 	}
 
 	public Date getFechaRegistro() {
@@ -90,6 +67,30 @@ public class Evaluacion implements Serializable {
 
 	public void setMatriz(Collection<Posicion> matriz) {
 		this.matriz = matriz;
+	}
+
+	public String getTiempo() {
+		return tiempo;
+	}
+
+	public void setTiempo(String tiempo) {
+		this.tiempo = tiempo;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
+
+	public Docente getDocente() {
+		return docente;
+	}
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
 	}
 
 }
