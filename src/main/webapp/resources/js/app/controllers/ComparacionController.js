@@ -54,7 +54,7 @@ var ComparacionController = function($scope, $http, $location) {
 
 	$scope.comparar = function() {
 		$scope.botonReporte = 1;
-		console.log($scope.elegidos);
+
 		$scope.contenedorElegidos = new Object();
 		$scope.contenedorElegidos.posiciones = $scope.elegidos;
 
