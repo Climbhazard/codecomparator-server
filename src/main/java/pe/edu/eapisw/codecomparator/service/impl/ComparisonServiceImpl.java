@@ -74,7 +74,8 @@ public class ComparisonServiceImpl implements ComparisonService {
 		String srcFilename;
 		for (Evaluacion evaluacion : evaluacionesDocente) {
 			nombreCurso = "/" + evaluacion.getCurso()/* .getNombre() */;
-			evaluacionId = "/" + String.valueOf(evaluacion.getN_evaluacion_id());
+			evaluacionId = "/"
+					+ String.valueOf(evaluacion.getN_evaluacion_id());
 			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
 
 			this.evaluaciones
