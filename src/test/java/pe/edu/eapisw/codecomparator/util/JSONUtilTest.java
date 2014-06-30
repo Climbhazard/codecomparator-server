@@ -143,7 +143,7 @@ public class JSONUtilTest {
 		Curso curso = new Curso();
 		curso.setCursoId(500);
 		curso.setDocente(null);
-		curso.setGrupo(2);
+		curso.setGrupo(String.valueOf(2));
 		curso.setNombre("Algorítmica II");
 
 		Evaluacion evaluacion = new Evaluacion();
