@@ -9,7 +9,8 @@ public class Curso implements Serializable {
 	private Integer cursoId;
 	private String nombre;
 	private Integer grupo;
-	private Collection<Docente> docentes;
+	// private Collection<Docente> docentes;
+	private Docente docente;
 
 	public Integer getCursoId() {
 		return cursoId;
@@ -35,12 +36,12 @@ public class Curso implements Serializable {
 		this.grupo = grupo;
 	}
 
-	public Collection<Docente> getDocentes() {
-		return docentes;
+	public Docente getDocente() {
+		return docente;
 	}
 
-	public void setDocentes(Collection<Docente> docentes) {
-		this.docentes = docentes;
+	public void setDocente(Docente docente) {
+		this.docente = docente;
 	}
 
 }
