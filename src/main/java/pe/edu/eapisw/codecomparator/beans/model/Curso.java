@@ -36,11 +36,11 @@ public class Curso implements Serializable {
 		this.grupo = grupo;
 	}
 
-	public Docente getDocentes() {
+	public Docente getDocente() {
 		return docente;
 	}
 
-	public void setDocentes(Docente docente) {
+	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
 

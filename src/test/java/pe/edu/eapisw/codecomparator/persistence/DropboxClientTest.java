@@ -24,7 +24,7 @@ public class DropboxClientTest {
 	public void testUploadAnEvaluacion() {
 		String srcFilename = "src/test/java/pe/edu/eapisw/codecomparator/persistence/Evaluacion";
 		String docenteId = "/D010203";
-		String nombreCurso = "/Algorï¿½tmica II";
+		String nombreCurso = "/Algorítmica II";
 		String evaluacionId = "/" + String.valueOf(1);
 		String destFilename = docenteId + nombreCurso + evaluacionId + ".json";
 		dropboxUploader.upload(authToken, srcFilename, destFilename);
@@ -33,7 +33,7 @@ public class DropboxClientTest {
 	@Test
 	public void testDownloadAnEvaluacion() {
 		String docenteId = "/D010203";
-		String nombreCurso = "/Algorï¿½tmica II";
+		String nombreCurso = "/Algorítmica II";
 		String evaluacionId = "/" + String.valueOf(1);
 		String srcFilename = docenteId + nombreCurso + evaluacionId;
 		System.out.println("&"
