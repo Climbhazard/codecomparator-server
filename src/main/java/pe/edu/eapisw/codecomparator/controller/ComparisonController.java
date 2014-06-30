@@ -28,7 +28,7 @@ public class ComparisonController {
 	@RequestMapping("/evaluaciones.json")
 	public @ResponseBody Collection<Evaluacion> getEvaluaciones() {
 		Docente docente = new Docente();
-		docente.setDocenteId("/D010203");
+		docente.setCodigo("/D010203");
 		return comparisonService.getEvaluaciones(docente);
 	}
 
