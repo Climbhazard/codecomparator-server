@@ -68,14 +68,14 @@ public class ComparisonServiceImpl implements ComparisonService {
 		// List<Evaluacion> evs = new ArrayList<Evaluacion>();
 		// evs.add(eva1);
 
-		String docenteId = "/" + docente.getDocenteId();
+		String codigoDocente = "/" + docente.getCodigo();
 		String nombreCurso;
 		String evaluacionId;
 		String srcFilename;
 		for (Evaluacion evaluacion : evaluacionesDocente) {
 			nombreCurso = "/" + evaluacion.getCurso()/* .getNombre() */;
 			evaluacionId = "/" + String.valueOf(evaluacion.getN_evaluacion_id());
-			srcFilename = docenteId + nombreCurso + evaluacionId + ".json";
+			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
 
 			this.evaluaciones
 					.add((Evaluacion) jsonUtil.toObject(
