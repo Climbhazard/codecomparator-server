@@ -124,4 +124,23 @@
 </div>
 
   
+  <div ng-show="showMsg==1"
+		class="alert alert-warning alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>¡Atención!</strong> {{msg1}}
+	</div>
+
+	<div ng-show="showMsg==2"
+		class="alert alert-success alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>Información</strong> {{msg2}}
+	</div>
+  
+  
     </div>

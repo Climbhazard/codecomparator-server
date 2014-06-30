@@ -75,7 +75,7 @@
 			<div class="col-md-6">
 				<label class="col-md-5 control-label">Código</label>
 				<div class="col-md-7">
-				<input type="text" id="codigo" name="t_codigo" class="form-control">
+				<input type="text" id="codigo" name="t_codigo" class="form-control" ng-model="datos.codigo"> 
 			</div>
 
 			</div>
@@ -85,7 +85,7 @@
 			 <div class="col-md-6">
            	 <label class="col-md-5 control-label">Nombre</label>
            	 <div class="col-md-7">
-           	 	<input type="text" id="nombre" name="t_nombre" class="form-control">
+           	 	<input type="text" id="nombre" name="t_nombre" class="form-control" ng-model="datos.nombre">
            	 </div>
            </div>
            
@@ -94,7 +94,7 @@
        <div class="col-md-6">
              <label class="col-md-5 control-label">Apellido paterno</label>
              <div class="col-md-7">
-              <input type="text" id="ap_paterno" name="t_apellido_paterno" class="form-control">
+              <input type="text" id="ap_paterno" name="t_apellido_paterno" class="form-control" ng-model="datos.apelldoPaterno">
              </div>
            </div>
            
@@ -103,27 +103,44 @@
     	<div class="col-md-6">
              <label class="col-md-5 control-label">Apellido materno</label>
              <div class="col-md-7">
-              <input type="text" id="ap_materno" name="t_apellido_materno" class="form-control">
+              <input type="text" id="ap_materno" name="t_apellido_materno" class="form-control" ng-model="datos.apellidoMaterno">
              </div>
            </div>
     </div>
 		<hr>
 		<div class="form-actions" style="text-align: center;">
-            <a href="#" id="save_alum" class="btn btn-primary left">Guardar</a>
+            <a href="#" id="save_alum" class="btn btn-primary left" ng-click="registraralumno()">Guardar</a>
             <button type="reset" class="btn btn-default left">Cancelar</button>
         </div>
 
 		</div>
 		
-        <div class="alert alert-success">
+        <!-- <div class="alert alert-success">
    <strong style="display: block;text-align: center;">Registro exitoso</strong>
-    </div>
+    </div>-->
 		</form>	
 		<br>
 		<div id="list_alumnos">
 			
 
 		</div>
+		
+		<div ng-show="showMsg==1"
+		class="alert alert-warning alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>¡Atención!</strong> {{msg1}}
+	</div>
 
+	<div ng-show="showMsg==2"
+		class="alert alert-success alert-dismissible" role="alert"
+		style="margin-top: -762px; width: 368px; margin-left: 873px;">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<strong>Información</strong> {{msg2}}
+	</div>
 
-    </div>
+</div>

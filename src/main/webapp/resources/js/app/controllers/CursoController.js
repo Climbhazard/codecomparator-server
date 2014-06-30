@@ -8,17 +8,19 @@
 var CursoController = function($scope, $http) {
 
     $scope.datos = {};
-    $scope.msgCompleta = 0;
-    $scope.msgCompletaData = "Complete todos los campos";
+    $scope.showMsg = 0;
+    $scope.msg1 = "Complete todos los campos";
+    $scope.msg2 = "Curso registrado con éxito";
+    
     console.log('curso');
     
     $scope.validacion = function(){
     	if($scope.datos.nombre == "" || $scope.datos.nombre == undefined){
-    		$scope.msgCompleta = 1;
+    		$scope.showMsg = 1;
     		return false;
     	}
     	if($scope.datos.grupo == "" || $scope.datos.grupo == undefined){
-    		$scope.msgCompleta = 1;
+    		$scope.showMsg = 1;
     		return false;
     	}
     	return true;
@@ -27,17 +29,19 @@ var CursoController = function($scope, $http) {
     
     $scope.registrarcurso = function(){
     	alert('curso');
-    	console.log($scope.datos);
     	if($scope.validacion()){
-    		$scope.datos.docenteId = 2;
-    		/*$http.get('curso/registrar', $scope.datos.nombre,$scope.datos.grupo,$scope.datos.idDocente).success(
+        	console.log($scope.datos);
+        	
+        	$scope.curso = {};
+        	$scope.curso.nombre = $scope.datos.nombre;
+        	$scope.curso.grupo = $scope.datos.grupo;
+        	$scope.curso.docente = {};
+        	$scope.curso.docente.docenteId = "2";//id de docente de la session logueada
+        	
+    		$http.post('curso/registrar', $scope.curso).success(
     				function() {
-    					$scope.msgCompleta = 2;
-
-    					//$timeout(delay, 1500);
-
-//    					$location.path("/login");
-    				});*/
+    					$scope.showMsg = 2;
+    				});
     		
     	}
     
