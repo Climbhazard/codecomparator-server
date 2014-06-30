@@ -147,7 +147,7 @@ public class JSONUtilTest {
 		curso.setNombre("Algorítmica II");
 
 		Evaluacion evaluacion = new Evaluacion();
-		evaluacion.setEvaluacionId(1);
+		evaluacion.setN_evaluacion_id(1);;
 		evaluacion.setCurso(curso.getNombre());
 		evaluacion.setDescripcion("Punteros");
 		evaluacion.setFechaRegistro(new java.util.Date());

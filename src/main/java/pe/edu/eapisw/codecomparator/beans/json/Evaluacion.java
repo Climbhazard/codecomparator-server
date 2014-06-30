@@ -9,7 +9,7 @@ import pe.edu.eapisw.codecomparator.beans.model.Docente;
 public class Evaluacion implements Serializable {
 
 	private static final long serialVersionUID = 3793765939640816920L;
-	private Integer evaluacionId;
+	private Integer n_evaluacion_id;
 	private String titulo;// en lugar de descripcion al momento de mostralo en
 							// la interfaz
 	private String descripcion;
@@ -43,12 +43,12 @@ public class Evaluacion implements Serializable {
 		this.tiempo = tiempo;
 	}
 
-	public Integer getEvaluacionId() {
-		return evaluacionId;
+	public Integer getN_evaluacion_id() {
+		return n_evaluacion_id;
 	}
 
-	public void setEvaluacionId(Integer evaluacionId) {
-		this.evaluacionId = evaluacionId;
+	public void setN_evaluacion_id(Integer n_evaluacion_id) {
+		this.n_evaluacion_id = n_evaluacion_id;
 	}
 
 	public String getDescripcion() {
