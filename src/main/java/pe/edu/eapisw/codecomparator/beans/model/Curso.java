@@ -1,6 +1,7 @@
 package pe.edu.eapisw.codecomparator.beans.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 public class Curso implements Serializable {
 
@@ -8,7 +9,7 @@ public class Curso implements Serializable {
 	private Integer cursoId;
 	private String nombre;
 	private Integer grupo;
-	private Docente docente;
+	private Collection<Docente> docentes;
 
 	public Integer getCursoId() {
 		return cursoId;
@@ -34,12 +35,12 @@ public class Curso implements Serializable {
 		this.grupo = grupo;
 	}
 
-	public Docente getDocente() {
-		return docente;
+	public Collection<Docente> getDocentes() {
+		return docentes;
 	}
 
-	public void setDocente(Docente docente) {
-		this.docente = docente;
+	public void setDocentes(Collection<Docente> docentes) {
+		this.docentes = docentes;
 	}
 
 }
