@@ -63,7 +63,9 @@ var ComparacionController = function($scope, $http, $location) {
 				function(resultados) {
 					$scope.resultados = resultados;
 					console.log("resultados");
-					console.log($scope.resultados.charResults[0]);
+					console.log($scope.resultados);
+					console.log($scope.resultados.charResults[0][0]);
+					
 				});
 	};
 
@@ -189,7 +191,6 @@ var ComparacionController = function($scope, $http, $location) {
 	};
 
 	$scope.verReporte = function() {
-		console.log('reporte');
 		$scope.state = 2;
 	};
 };

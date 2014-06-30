@@ -40,33 +40,9 @@ public class ComparisonServiceImpl implements ComparisonService {
 	@Override
 	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
 		evaluaciones.clear();
-		// simulo traer un todos los cursos del docente
-
-		// Collection<Curso> cursosDocente = cursoMapper
-		// .getAllCursosByDocente(docente.getCodigo());
-
-		// Collection<Evaluacion> evaluacionesDocente = new
-		// ArrayList<Evaluacion>();
-		// Collection<Evaluacion> evaluacionCurso = null;
-		// for (Curso curso : cursosDocente) {
-		// evaluacionCurso = evaluacionMapper.getAllEvaluacionesByCurso(curso);
-		// evaluacionesDocente.addAll(evaluacionCurso);
-		// }
 
 		Collection<Evaluacion> evaluacionesDocente = evaluacionMapper
 				.getAllEvaluacionesByDocente(docente);
-
-		// Curso algoritmica = new Curso();
-		// algoritmica.setCursoId(1);
-		// algoritmica.setGrupo(String.valueOf(2));
-		// algoritmica.setNombre("Algorítmica II");
-		//
-		// // traigo todas las evaluaciones de este curso
-		// Evaluacion eva1 = new Evaluacion();
-		// eva1.setEvaluacionId(1);
-		// eva1.setCurso(algoritmica.getNombre());
-		// List<Evaluacion> evs = new ArrayList<Evaluacion>();
-		// evs.add(eva1);
 
 		String codigoDocente = "/" + docente.getCodigo();
 		String nombreCurso;

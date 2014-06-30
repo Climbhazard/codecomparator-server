@@ -18,9 +18,9 @@
 				</a>
 
 					<ul class="dropdown-menu">
-						<li><a href="#/cambiarPass">Cambiar contraseï¿½a</a></li>
+						<li><a href="#/cambiarPass">Cambiar contraseña</a></li>
 
-						<li><a href="#/login">Cerrar Sesiï¿½n</a></li>
+						<li><a href="#/login">Cerrar Sesión</a></li>
 					</ul></li>
 			</ul>
 
@@ -36,7 +36,7 @@
 	<form class="form-horizontal" role="form">
 		<div class="row form-group">
 			<div class="col-md-6">
-				<label class="col-md-4 control-label">Evaluaciï¿½n</label>
+				<label class="col-md-4 control-label">Evaluación</label>
 				<div class="col-md-8">
 					<!-- <select class="form-control">
 <option>09/05/14 Algoritmica 02 - Grupo 1:Punteros</option>
@@ -48,7 +48,7 @@
 						ng-options="formatearEvaluacion(evaluacion) for evaluacion in evaluaciones"
 						ng-change="poblarPosiciones(evaluacionSeleccionada)"
 						class="form-control">
-						<option value="">Escoja una evaluaciï¿½n</option>
+						<option value="">Escoja una evaluación</option>
 					</select>
 
 				</div>
@@ -56,7 +56,7 @@
 		</div>
 		<div class="row form-group">
 			<div class="col-md-6">
-				<label class="col-md-4 control-label">Tipo de Comparaciï¿½n</label>
+				<label class="col-md-4 control-label">Tipo de Comparación</label>
 				<div class="col-md-8">
 					<select ng-model="comparacionSeleccionada"
 						ng-options="tipo.llave for tipo in tiposComparacion"
@@ -216,8 +216,8 @@
 			</row>
 
 			<row>
-			<div class="col-md-6 ">{{resultados[0].charResults[0].codeFirstProyect.nombre}}</div>
-			<div class="col-md-6 ">{{resultados[0].charResults[0].codeSecondProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados.charResults[0][0].codeFirstProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados.charResults[0][0].codeSecondProyect.nombre}}</div>
 			</row>
 
 
@@ -227,8 +227,8 @@
 			</row>
 
 			<row>
-			<div class="col-md-6">{{resultados[0].charResults[0].codeFirstProyect.contenido}}</div>
-			<div class="col-md-6">{{resultados[0].charResults[0].codeSecondProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados.charResults[0][0].codeFirstProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados.charResults[0][0].codeSecondProyect.contenido}}</div>
 			</row>
 			<br />
 			<row class="row">
