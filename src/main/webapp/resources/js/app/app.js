@@ -38,7 +38,19 @@ App.config([ '$routeProvider', function($routeProvider) {
         controller : CambiarPassController
     });
     
+    $routeProvider.when('/curso', {
+        templateUrl : 'curso/layout',
+        controller : CursoController
+    });
+    
+    $routeProvider.when('/alumno', {
+        templateUrl : 'alumno/layout',
+        controller : AlumnoController
+    });
+    
 	$routeProvider.otherwise({
 		redirectTo : '/inicio'
 	});
 } ]);
+
+
