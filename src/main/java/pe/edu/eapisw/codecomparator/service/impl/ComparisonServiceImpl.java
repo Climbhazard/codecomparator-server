@@ -238,8 +238,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 	@Override
 	public Collection<Comparacion> getComparaciones(Docente docente) {
 		Collection<Comparacion> comparaciones = new ArrayList<Comparacion>();
-		System.out.println(comparacionMapper
-				.getAllComparacionesByDocente(docente));
+		comparaciones = comparacionMapper.getAllComparacionesByDocente(docente);
 		return null;
 	}
 }
