@@ -6,15 +6,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.eapisw.codecomparator.beans.json.Codigo;
 import pe.edu.eapisw.codecomparator.beans.json.Evaluacion;
 import pe.edu.eapisw.codecomparator.beans.json.Paquete;
+import pe.edu.eapisw.codecomparator.beans.json.Posicion;
 import pe.edu.eapisw.codecomparator.beans.json.Proyecto;
+import pe.edu.eapisw.codecomparator.beans.model.Comparacion;
 import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;
 import pe.edu.eapisw.codecomparator.beans.model.Curso;
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
+import pe.edu.eapisw.codecomparator.beans.model.Resultado;
+import pe.edu.eapisw.codecomparator.persistence.ComparacionMapper;
 import pe.edu.eapisw.codecomparator.persistence.DropboxClient;
+import pe.edu.eapisw.codecomparator.persistence.ResultadoMapper;
 import pe.edu.eapisw.codecomparator.service.ComparisonService;
 import pe.edu.eapisw.codecomparator.service.core.fdtw.FDTW;
 import pe.edu.eapisw.codecomparator.util.JSONUtil;
@@ -26,6 +32,10 @@ public class ComparisonServiceImpl implements ComparisonService {
 
 	private JSONUtil jsonUtil = new JSONUtil();
 
+	@Autowired
+	private ComparacionMapper comparacionMapper;
+	@Autowired
+	private ResultadoMapper resultadoMapper;
 	@Autowired
 	private DropboxClient dropboxUploader;
 
@@ -43,7 +53,8 @@ public class ComparisonServiceImpl implements ComparisonService {
 
 		// traigo todas las evaluaciones de este curso
 		Evaluacion eva1 = new Evaluacion();
-		eva1.setN_evaluacion_id(1);;
+		eva1.setN_evaluacion_id(1);
+		;
 		eva1.setCurso(algoritmica.getNombre());
 		List<Evaluacion> evs = new ArrayList<Evaluacion>();
 		evs.add(eva1);
@@ -54,7 +65,8 @@ public class ComparisonServiceImpl implements ComparisonService {
 		String srcFilename;
 		for (Evaluacion evaluacion : evs) {
 			nombreCurso = "/" + evaluacion.getCurso();
-			evaluacionId = "/" + String.valueOf(evaluacion.getN_evaluacion_id());
+			evaluacionId = "/"
+					+ String.valueOf(evaluacion.getN_evaluacion_id());
 			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
 
 			this.evaluaciones
@@ -73,7 +85,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 	/**
 	 * Método inicial de comparación de proyectos
 	 * 
-	 * @author MaráaAlejandra (oshingc)
+	 * @author MaríaAlejandra (oshingc)
 	 * @param Proyecto
 	 *            project1
 	 * @param Proyecto
@@ -196,4 +208,32 @@ public class ComparisonServiceImpl implements ComparisonService {
 
 	}
 
+	@Transactional
+	@Override
+	public void saveComparacion(Integer evaluacionId, Integer tipoComparacion,
+			Posicion comparado, Posicion aComparar) {
+		comparacionMapper.saveComparacion(evaluacionId, tipoComparacion,
+				comparado.getAlumno().getT_codigo(), aComparar.getAlumno()
+						.getT_codigo());
+	}
+
+	@Override
+	public void saveResultado(Integer comparacionId,
+			List<ContainerChartResult> resultados) {
+		Resultado resultado = null;
+		for (ContainerChartResult container : resultados) {
+			resultado = new Resultado();
+			resultado.setComparacion(new Comparacion());
+			resultado.getComparacion().setComparacionId(comparacionId);
+			resultado
+					.setPorcentajeTotal(Double.parseDouble(container.getFdtw()));
+			resultado.setPrimero(jsonUtil.toJson(container
+					.getCodeFirstProyect()));
+			resultado.setSegundo(jsonUtil.toJson(container
+					.getCodeSecondProyect()));
+
+			System.out.println(resultadoMapper.saveResultado(resultado));
+			System.out.println();
+		}
+	}
 }

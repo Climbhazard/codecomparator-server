@@ -54,6 +54,13 @@ public class ComparisonController {
 			resultado = comparisonService.comparisionProject(
 					primeraPosicion.getProyecto(), posicion.getProyecto());
 			containerResult.setCharResults(resultado);
+
+			comparisonService.saveComparacion(contenedor.getEvaluacionId(),
+					contenedor.getTipoComparacion(), primeraPosicion, posicion);
+
+			comparisonService.saveResultado(1, resultado);// TODO: implementar
+															// return de id
+															// luego de save
 		}
 
 		return containerResult;

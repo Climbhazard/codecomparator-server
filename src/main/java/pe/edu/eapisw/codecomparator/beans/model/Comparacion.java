@@ -8,7 +8,7 @@ public class Comparacion implements Serializable {
 
 	private static final long serialVersionUID = -2727664758882609117L;
 	private Integer comparacionId;
-	private String descripcion;
+	// private String descripcion;
 	private int tipoComparacion;
 	private Evaluacion evaluacion;
 	private Alumno alumnoComparado; // contra el que se va a comparar
@@ -22,13 +22,13 @@ public class Comparacion implements Serializable {
 		this.comparacionId = comparacionId;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	// public String getDescripcion() {
+	// return descripcion;
+	// }
+	//
+	// public void setDescripcion(String descripcion) {
+	// this.descripcion = descripcion;
+	// }
 
 	public int getTipoComparacion() {
 		return tipoComparacion;

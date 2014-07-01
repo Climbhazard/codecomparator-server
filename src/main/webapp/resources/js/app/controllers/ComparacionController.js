@@ -56,14 +56,13 @@ var ComparacionController = function($scope, $http, $location) {
 		$scope.botonReporte = 1;
 		console.log($scope.elegidos);
 		$scope.contenedorElegidos = new Object();
+		$scope.contenedorElegidos.evaluacionId = $scope.evaluacionSeleccionada.n_evaluacion_id;
+		$scope.contenedorElegidos.tipoComparacion = $scope.comparacionSeleccionada.valor;
 		$scope.contenedorElegidos.posiciones = $scope.elegidos;
 
-		console.log($scope.contenedorElegidos);
 		$http.post('comparison/comparar', $scope.contenedorElegidos).success(
 				function(resultados) {
 					$scope.resultados = resultados;
-					console.log("resultados");
-					console.log($scope.resultados.charResults[0]);
 				});
 	};
 

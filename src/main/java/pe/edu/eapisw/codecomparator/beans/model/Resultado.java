@@ -7,8 +7,10 @@ public class Resultado implements Serializable {
 	private static final long serialVersionUID = -7925312610348273400L;
 	private Integer resultadoId;
 	private Comparacion comparacion;
-	private Double porcentajeTotal;
-	private String clasesSimilares;
+	private Double porcentajeTotal; // FDTW
+	// private String clasesSimilares;
+	private String primero;
+	private String segundo;
 
 	public Integer getResultadoId() {
 		return resultadoId;
@@ -34,12 +36,28 @@ public class Resultado implements Serializable {
 		this.porcentajeTotal = porcentajeTotal;
 	}
 
-	public String getClasesSimilares() {
-		return clasesSimilares;
+	public String getPrimero() {
+		return primero;
 	}
 
-	public void setClasesSimilares(String clasesSimilares) {
-		this.clasesSimilares = clasesSimilares;
+	public void setPrimero(String primero) {
+		this.primero = primero;
 	}
+
+	public String getSegundo() {
+		return segundo;
+	}
+
+	public void setSegundo(String segundo) {
+		this.segundo = segundo;
+	}
+
+	// public String getClasesSimilares() {
+	// return clasesSimilares;
+	// }
+	//
+	// public void setClasesSimilares(String clasesSimilares) {
+	// this.clasesSimilares = clasesSimilares;
+	// }
 
 }
