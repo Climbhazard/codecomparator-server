@@ -15,11 +15,12 @@ import pe.edu.eapisw.codecomparator.beans.json.Posicion;
 import pe.edu.eapisw.codecomparator.beans.json.Proyecto;
 import pe.edu.eapisw.codecomparator.beans.model.Comparacion;
 import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;
-import pe.edu.eapisw.codecomparator.beans.model.Curso;
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.beans.model.Resultado;
 import pe.edu.eapisw.codecomparator.persistence.ComparacionMapper;
+import pe.edu.eapisw.codecomparator.persistence.CursoMapper;
 import pe.edu.eapisw.codecomparator.persistence.DropboxClient;
+import pe.edu.eapisw.codecomparator.persistence.EvaluacionMapper;
 import pe.edu.eapisw.codecomparator.persistence.ResultadoMapper;
 import pe.edu.eapisw.codecomparator.service.ComparisonService;
 import pe.edu.eapisw.codecomparator.service.core.fdtw.FDTW;
@@ -37,6 +38,10 @@ public class ComparisonServiceImpl implements ComparisonService {
 	@Autowired
 	private ResultadoMapper resultadoMapper;
 	@Autowired
+	private CursoMapper cursoMapper;
+	@Autowired
+	private EvaluacionMapper evaluacionMapper;
+	@Autowired
 	private DropboxClient dropboxUploader;
 
 	private Codigo code2 = new Codigo();
@@ -45,26 +50,15 @@ public class ComparisonServiceImpl implements ComparisonService {
 	@Override
 	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
 		evaluaciones.clear();
-		// simulo traer un todos los cursos del docente
-		Curso algoritmica = new Curso();
-		algoritmica.setCursoId(1);
-		algoritmica.setGrupo(String.valueOf(2f));
-		algoritmica.setNombre("Algorítmica II");
-
-		// traigo todas las evaluaciones de este curso
-		Evaluacion eva1 = new Evaluacion();
-		eva1.setN_evaluacion_id(1);
-		;
-		eva1.setCurso(algoritmica.getNombre());
-		List<Evaluacion> evs = new ArrayList<Evaluacion>();
-		evs.add(eva1);
+		Collection<Evaluacion> evaluacionesDocente = evaluacionMapper
+				.getAllEvaluacionesByDocente(docente);
 
 		String codigoDocente = "/" + docente.getCodigo();
 		String nombreCurso;
 		String evaluacionId;
 		String srcFilename;
-		for (Evaluacion evaluacion : evs) {
-			nombreCurso = "/" + evaluacion.getCurso();
+		for (Evaluacion evaluacion : evaluacionesDocente) {
+			nombreCurso = "/" + evaluacion.getCurso()/* .getNombre() */;
 			evaluacionId = "/"
 					+ String.valueOf(evaluacion.getN_evaluacion_id());
 			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
@@ -239,5 +233,13 @@ public class ComparisonServiceImpl implements ComparisonService {
 					.getCodeSecondProyect()));
 			resultadoMapper.saveResultado(resultado);
 		}
+	}
+
+	@Override
+	public Collection<Comparacion> getComparaciones(Docente docente) {
+		Collection<Comparacion> comparaciones = new ArrayList<Comparacion>();
+		System.out.println(comparacionMapper
+				.getAllComparacionesByDocente(docente));
+		return null;
 	}
 }
