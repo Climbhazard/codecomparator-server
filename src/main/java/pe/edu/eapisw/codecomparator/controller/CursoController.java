@@ -27,10 +27,10 @@ public class CursoController {
         return "curso/layout";       
     }
     
-	@RequestMapping(value="/lista", method = RequestMethod.GET)
+	@RequestMapping(value="/lista/{docenteId}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public List<Curso> allCursos(@RequestBody Docente docente){
-    	return cursoService.allCursos(docente);
+    public List<Curso> allCursos(@PathVariable(value="docenteId") String docenteId){
+    	return cursoService.allCursos(docenteId);
     }
 	
     @RequestMapping(value="/registrar", method = RequestMethod.POST)
@@ -38,4 +38,5 @@ public class CursoController {
     public void registrarCurso(@RequestBody Curso curso){
     	cursoService.registrarCurso(curso);
     }
+    
 }

@@ -7,7 +7,7 @@ import pe.edu.eapisw.codecomparator.beans.model.Docente;
 
 public interface CursoService {
 	
-	public List<Curso> allCursos(Docente docente);
+	public List<Curso> allCursos(String docenteId);
 	
 	public void registrarCurso(Curso curso);
 

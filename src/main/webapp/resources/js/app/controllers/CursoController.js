@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * AccountController
+ * CursoController
  *
  * @constructor
  */
@@ -47,5 +47,7 @@ var CursoController = function($scope, $http) {
     
     	
     };
+    
+   
 
 };
