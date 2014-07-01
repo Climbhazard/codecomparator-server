@@ -48,19 +48,18 @@ public class ComparisonController {
 		// posiciones restantes
 		Collection<Posicion> posicionesRestantes = contenedor.getPosiciones();
 
-		List<ContainerChartResult> resultado;
+		List<ContainerChartResult> resultados;
 
 		for (Posicion posicion : posicionesRestantes) {
-			resultado = comparisonService.comparisionProject(
+			resultados = comparisonService.comparisionProject(
 					primeraPosicion.getProyecto(), posicion.getProyecto());
-			containerResult.setCharResults(resultado);
+			containerResult.setCharResults(resultados);
 
-			comparisonService.saveComparacion(contenedor.getEvaluacionId(),
+			Integer comparacionId = comparisonService.saveComparacion(
+					contenedor.getEvaluacionId(),
 					contenedor.getTipoComparacion(), primeraPosicion, posicion);
 
-			comparisonService.saveResultado(1, resultado);// TODO: implementar
-															// return de id
-															// luego de save
+			comparisonService.saveResultado(comparacionId, resultados);
 		}
 
 		return containerResult;

@@ -21,7 +21,7 @@ public interface ComparisonService {
 	public List<ContainerChartResult> comparisionProject(Proyecto project1,
 			Proyecto project2);
 
-	public void saveComparacion(Integer evaluacionId, Integer tipoComparacion,
+	public Integer saveComparacion(Integer evaluacionId, Integer tipoComparacion,
 			Posicion comparado, Posicion aComparar);
 
 	public void saveResultado(Integer comparacionId,

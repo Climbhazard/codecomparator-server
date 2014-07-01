@@ -210,11 +210,17 @@ public class ComparisonServiceImpl implements ComparisonService {
 
 	@Transactional
 	@Override
-	public void saveComparacion(Integer evaluacionId, Integer tipoComparacion,
-			Posicion comparado, Posicion aComparar) {
-		comparacionMapper.saveComparacion(evaluacionId, tipoComparacion,
-				comparado.getAlumno().getT_codigo(), aComparar.getAlumno()
-						.getT_codigo());
+	public Integer saveComparacion(Integer evaluacionId,
+			Integer tipoComparacion, Posicion comparado, Posicion aComparar) {
+		Comparacion comparacion = new Comparacion();
+		comparacion.setTipoComparacion(tipoComparacion);
+		comparacion.setEvaluacion(new Evaluacion());
+		comparacion.getEvaluacion().setN_evaluacion_id(evaluacionId);
+		comparacion.setAlumnoComparado(comparado.getAlumno());
+		comparacion.setAlumnoAComparar(aComparar.getAlumno());
+
+		comparacionMapper.saveComparacion(comparacion);
+		return comparacionMapper.getLastId();
 	}
 
 	@Override
@@ -231,9 +237,7 @@ public class ComparisonServiceImpl implements ComparisonService {
 					.getCodeFirstProyect()));
 			resultado.setSegundo(jsonUtil.toJson(container
 					.getCodeSecondProyect()));
-
-			System.out.println(resultadoMapper.saveResultado(resultado));
-			System.out.println();
+			resultadoMapper.saveResultado(resultado);
 		}
 	}
 }

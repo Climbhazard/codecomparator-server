@@ -11,32 +11,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pe.edu.eapisw.codecomparator.beans.model.Curso;
-import pe.edu.eapisw.codecomparator.beans.model.Docente;
-import pe.edu.eapisw.codecomparator.persistence.CursoMapper;
 import pe.edu.eapisw.codecomparator.service.CursoService;
 
 @Controller
 @RequestMapping("/curso")
 public class CursoController {
 
-    @Autowired
-    CursoService cursoService;
-	
+	@Autowired
+	CursoService cursoService;
+
 	@RequestMapping("/layout")
-    public String getLayout() {
-        return "curso/layout";       
-    }
-    
-	@RequestMapping(value="/lista/{docenteId}", method = RequestMethod.GET, produces = "application/json")
-    @ResponseBody
-    public List<Curso> allCursos(@PathVariable(value="docenteId") String docenteId){
-    	return cursoService.allCursos(docenteId);
-    }
-	
-    @RequestMapping(value="/registrar", method = RequestMethod.POST)
-    @ResponseBody
-    public void registrarCurso(@RequestBody Curso curso){
-    	cursoService.registrarCurso(curso);
-    }
-    
+	public String getLayout() {
+		return "curso/layout";
+	}
+
+	@RequestMapping(value = "/lista/{docenteId}", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public List<Curso> allCursos(
+			@PathVariable(value = "docenteId") String docenteId) {
+		return cursoService.allCursos(docenteId);
+	}
+
+	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
+	@ResponseBody
+	public void registrarCurso(@RequestBody Curso curso) {
+		cursoService.registrarCurso(curso);
+	}
+
 }

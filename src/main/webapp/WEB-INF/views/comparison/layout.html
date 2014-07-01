@@ -1,49 +1,48 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#/comparacion">CodeComparator</a>
-        </div>
-        <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#/inicio">Inicio</a></li>
-         
-          <li>
-          <a href="#/alumno"><div title="Registro de alumnos">Alumno</div></a>          
-          </li>
-          
-          <li>
-          <a href="#/curso"><div title="Registro de cursos">Curso</div></a>          
-          </li>
-                     
-          <li><a href="#/comparacion"><div title="Comparación de proyectos">Comparación de Proyectos</div></a>
-             
-          </li>
-          <li><a href="#/historial"><div title="Ver historial de comparaciones">Historiales</div></a></li>
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#/comparacion">CodeComparator</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#/inicio">Inicio</a></li>
 
-        </ul>
-         <ul class="nav navbar-nav navbar-right">
-          
-          <li class="dropdown">
-                  <a href="#" id="email" class="dropdown-toggle" data-toggle="dropdown">Xtreme<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/cambiarPass">Cambiar contraseña</a></li>
-                                
-                                <li><a href="#/login">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-         </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
-    
-    
+				<li><a href="#/alumno"><div title="Registro de alumnos">Alumno</div></a>
+				</li>
+
+				<li><a href="#/curso"><div title="Registro de cursos">Curso</div></a>
+				</li>
+
+				<li><a href="#/comparacion"><div
+							title="Comparación de proyectos">Comparación de Proyectos</div></a></li>
+				<li><a href="#/historial"><div
+							title="Ver historial de comparaciones">Historiales</div></a></li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="dropdown"><a href="#" id="email"
+					class="dropdown-toggle" data-toggle="dropdown">Xtreme<b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#/cambiarPass">Cambiar contraseña</a></li>
+
+						<li><a href="#/login">Cerrar Sesión</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<!--/.navbar-collapse -->
+	</div>
+</div>
+
+
 
 
 
@@ -52,7 +51,7 @@
 	<form class="form-horizontal" role="form">
 		<div class="row form-group">
 			<div class="col-md-6">
-				<label class="col-md-4 control-label">Evaluaciï¿½n</label>
+				<label class="col-md-4 control-label">Evaluación</label>
 				<div class="col-md-8">
 					<!-- <select class="form-control">
 						<option>09/05/14 Algoritmica 02 - Grupo 1:Punteros</option>
@@ -64,7 +63,7 @@
 						ng-options="formatearEvaluacion(evaluacion) for evaluacion in evaluaciones"
 						ng-change="poblarPosiciones(evaluacionSeleccionada)"
 						class="form-control">
-						<option value="">Escoja una evaluaciï¿½n</option>
+						<option value="">Escoja una evaluación</option>
 					</select>
 
 				</div>
@@ -72,7 +71,7 @@
 		</div>
 		<div class="row form-group">
 			<div class="col-md-6">
-				<label class="col-md-4 control-label">Tipo de Comparaciï¿½n</label>
+				<label class="col-md-4 control-label">Tipo de Comparación</label>
 				<div class="col-md-8">
 					<select ng-model="comparacionSeleccionada"
 						ng-options="tipo.llave for tipo in tiposComparacion"
@@ -232,8 +231,8 @@
 			</row>
 
 			<row>
-			<div class="col-md-6 ">{{resultados[0].charResults[0].codeFirstProyect.nombre}}</div>
-			<div class="col-md-6 ">{{resultados[0].charResults[0].codeSecondProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados.charResults[0][0].codeFirstProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados.charResults[0][0].codeSecondProyect.nombre}}</div>
 			</row>
 
 
@@ -243,8 +242,8 @@
 			</row>
 
 			<row>
-			<div class="col-md-6">{{resultados[0].charResults[0].codeFirstProyect.contenido}}</div>
-			<div class="col-md-6">{{resultados[0].charResults[0].codeSecondProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados.charResults[0][0].codeFirstProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados.charResults[0][0].codeSecondProyect.contenido}}</div>
 			</row>
 			<br />
 			<row class="row">
@@ -264,18 +263,18 @@
 			
 			<tr>{{res.fdtw}}</tr>
 			</table>-->
-			
+
 			<!-- adding chart js -->
-			
-			
-        <!-- <input ng-model="highchartsNG.title.text">
+
+
+			<!-- <input ng-model="highchartsNG.title.text">
         <button ng-click="addSeries()">Add Series</button>
         <button ng-click="addPoints()">Add Points to Random Series</button>
         <button ng-click="removeRandomSeries()">Remove Random Series</button>
         <button ng-click="swapChartType()">Line/Bar</button>
         <highchart id="chart1" config="highchartsNG"></highchart>-->
-			
-			
+
+
 
 		</div>
 
