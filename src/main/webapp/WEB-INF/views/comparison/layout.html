@@ -29,7 +29,7 @@
 			<ul class="nav navbar-nav navbar-right">
 
 				<li class="dropdown"><a href="#" id="email"
-					class="dropdown-toggle" data-toggle="dropdown">Xtreme<b
+					class="dropdown-toggle" data-toggle="dropdown">Manuel<b
 						class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="#/cambiarPass">Cambiar contraseña</a></li>
@@ -252,8 +252,61 @@
 			</row>
 			<row> <!-- <div class="col-md-6">{{resultados.charResults[0].fdtw}}</div>-->
 			<div title="Estado: Alta similaridad" class="col-md-8 btn-info"
-				style="width: 100%; height: 22px;">100% Similaridad</div>
+				style="width: 100%; height: 22px;">{{c}}% Similaridad</div>
 			</row>
+			
+			 <row>
+        		Gráfica de Similitud
+	        </row>
+	        <row>        	
+	        	<highchart id="chart1" config="highchartsNG"></highchart>
+	        </row>
+
+	
+	
+	
+	
+			
+			<!-- Otro -->
+			
+				<row>
+			<div class="col-md-6 btn-danger">Primer Archivo</div>
+			<div class="col-md-6 btn-danger">Segundo Archivo</div>
+			</row>
+
+			<row>
+			<div class="col-md-6 ">{{resultados.charResults[0][1].codeFirstProyect.nombre}}</div>
+			<div class="col-md-6 ">{{resultados.charResults[0][1].codeSecondProyect.nombre}}</div>
+			</row>
+
+
+			<row>
+			<div class="col-md-6 btn-danger">Contenido</div>
+			<div class="col-md-6 btn-danger">Contenido</div>
+			</row>
+
+			<row>
+			<div class="col-md-6">{{resultados.charResults[0][1].codeFirstProyect.contenido}}</div>
+			<div class="col-md-6">{{resultados.charResults[0][1].codeSecondProyect.contenido}}</div>
+			</row>
+			<br />
+			<row class="row">
+
+			<div class="col-md-12 btn-danger">Resultados</div>
+			</row>
+			<row> <!-- <div class="col-md-6">{{resultados.charResults[0].fdtw}}</div>-->
+			<div title="Estado: Alta similaridad" class="col-md-8 btn-info"
+				style="width: 100%; height: 22px;">{{c}}% Similaridad</div>
+			</row>
+			
+			 <row>
+        		Gráfica de Similitud
+	        </row>
+	        <row>        	
+	        	<highchart id="chart1" config="highchartsNG"></highchart>
+	        </row>
+	        
+	
 			<!-- Resultados<br />
 			<table ng-repeat="res in resultados">
 			<tr ng-repeat="char in res.chaResults">
@@ -267,15 +320,17 @@
 			<!-- adding chart js -->
 
 
-			<!-- <input ng-model="highchartsNG.title.text">
+		<!-- <input ng-model="highchartsNG.title.text">
         <button ng-click="addSeries()">Add Series</button>
         <button ng-click="addPoints()">Add Points to Random Series</button>
         <button ng-click="removeRandomSeries()">Remove Random Series</button>
-        <button ng-click="swapChartType()">Line/Bar</button>
-        <highchart id="chart1" config="highchartsNG"></highchart>-->
-
-
-
+        <button ng-click="swapChartType()">Line/Bar</button>-->
+       
+	
+	
+	
+		<!-- Otro -->
+	
 		</div>
 
 	</form>
