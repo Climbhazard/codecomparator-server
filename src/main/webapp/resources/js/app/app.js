@@ -3,7 +3,7 @@
 var AngularSpringApp = {};
 
 var App = angular.module('AngularSpringApp', [ 'AngularSpringApp.filters',
-		'AngularSpringApp.services', 'AngularSpringApp.directives' ]);
+		'AngularSpringApp.services', 'AngularSpringApp.directives','highcharts-ng' ]);
 
 // Declare app level module which depends on filters, and services
 App.config([ '$routeProvider', function($routeProvider) {
@@ -35,7 +35,7 @@ App.config([ '$routeProvider', function($routeProvider) {
 
     $routeProvider.when('/historial', {
         templateUrl : 'historial/layout',
-        controller : HistorialController
+        controller : ResultadosController
     });
     
     $routeProvider.when('/cambiarPass', {
@@ -57,5 +57,3 @@ App.config([ '$routeProvider', function($routeProvider) {
 		redirectTo : '/inicio'
 	});
 } ]);
-
-

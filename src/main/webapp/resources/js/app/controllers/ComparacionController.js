@@ -10,6 +10,8 @@ var ComparacionController = function($scope, $http, $location) {
 	$scope.evaluacionSeleccionada = {};
 	$scope.state = 1;
 	$scope.botonReporte = 0;
+	$scope.comparison = {};
+	$scope.c = Math.floor(Math.random() *100);
 
 	$scope.tiposComparacion = [ {
 		llave : 'Comparación de adyacencia',
@@ -63,6 +65,26 @@ var ComparacionController = function($scope, $http, $location) {
 		$http.post('comparison/comparar', $scope.contenedorElegidos).success(
 				function(resultados) {
 					$scope.resultados = resultados;
+					console.log('resultados');
+					console.log($scope.resultados);
+					/*$scope.resultados.comparison = {};
+					$scope.resultados.qq = {};
+					for(var i=0; i<$scope.resultados.charResults.length; i++){
+						var elem = $scope.resultados.charResults;
+						$scope.resultados.comparison[i] = {};
+						$scope.resultados.qq[i] = {};
+						for(var j=0; j<elem.length; j++){
+							$scope.resultados.comparison[i][j] = {}; 
+							$scope.resultados.comparison[i][j].value = $scope.resultados.charResults[i][j].fdtw;
+							$scope.resultados.qq[i][j] = {};
+							$scope.resultados.qq[i][j].code1 = $scope.resultados.charResults[i][j].codeFirstProyect.q;
+							$scope.resultados.qq[i][j].code2 = $scope.resultados.charResults[i][j].codeSecondProyect.q;
+						}
+						
+						
+					}*/
+					console.log($scope.resultados);
+					$scope.swapChartType();
 				});
 	};
 
@@ -196,53 +218,59 @@ var ComparacionController = function($scope, $http, $location) {
 	
 	//Funciones para graficas de comparacion (charts)
 	
-	 /*$scope.addPoints = function () {
-	        var seriesArray = $scope.highchartsNG.series
+	 $scope.addPoints = function () {
+	        var seriesArray = $scope.highchartsNG.series;
 	        var rndIdx = Math.floor(Math.random() * seriesArray.length);
-	        seriesArray[rndIdx].data = seriesArray[rndIdx].data.concat([1, 10, 20])
+	        seriesArray[rndIdx].data = seriesArray[rndIdx].data.concat([1, 10, 20]);
 	    };
 
 	    $scope.addSeries = function () {
-	        var rnd = []
+	        var rnd = [];
 	        for (var i = 0; i < 10; i++) {
-	            rnd.push(Math.floor(Math.random() * 20) + 1)
+	            rnd.push(Math.floor(Math.random() * 20) + 1);
 	        }
 	        $scope.highchartsNG.series.push({
 	            data: rnd
-	        })
-	    }
+	        });
+	    };
 
 	    $scope.removeRandomSeries = function () {
-	        var seriesArray = $scope.highchartsNG.series
+	        var seriesArray = $scope.highchartsNG.series;
 	        var rndIdx = Math.floor(Math.random() * seriesArray.length);
-	        seriesArray.splice(rndIdx, 1)
-	    }
+	        seriesArray.splice(rndIdx, 1);
+	    };
 
 	    $scope.options = {
 	        type: 'line'
-	    }
+	    };
 
 	    $scope.swapChartType = function () {
-	        if (this.highchartsNG.options.chart.type === 'line') {
-	            this.highchartsNG.options.chart.type = 'bar'
+	    	this.highchartsNG.options.chart.type = 'line';
+	        /*if (this.highchartsNG.options.chart.type === 'line') {
+	            this.highchartsNG.options.chart.type = 'bar';
 	        } else {
-	            this.highchartsNG.options.chart.type = 'line'
-	        }
-	    }
+	            this.highchartsNG.options.chart.type = 'line';
+	        }*/
+	    };
 
 	    $scope.highchartsNG = {
 	        options: {
 	            chart: {
-	                type: 'bar'
+	                type: 'line'
 	            }
 	        },
 	        series: [{
-	            data: [10, 15, 12, 8, 7]
+	            //data: [10, 15, 12, 8, 7]
+	        data: [0.2625,0,0.15625,0.2375,0,0.1625,0.01875,0,0.15625,0,0.15625,0.01875,0,0.31875,0,0.15625,0.00625,0,0.01875,0,0.275,0,0]
+	        	//data: $scope.resultados.charResults[0][0].codeFirstProyect.q
 	        }],
 	        title: {
-	            text: 'Hello'
+	            //text: 'Hello'
+	        	text: ''
 	        },
 	        loading: false
-	    }*/
+	    };
+	    console.log('charts');
+	    console.log($scope.highchartsNG);
 
 };

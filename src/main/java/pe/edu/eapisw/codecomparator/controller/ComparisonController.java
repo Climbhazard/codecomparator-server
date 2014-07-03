@@ -55,11 +55,11 @@ public class ComparisonController {
 					primeraPosicion.getProyecto(), posicion.getProyecto());
 			containerResult.setCharResults(resultados);
 
-			Integer comparacionId = comparisonService.saveComparacion(
-					contenedor.getEvaluacionId(),
-					contenedor.getTipoComparacion(), primeraPosicion, posicion);
+//			Integer comparacionId = comparisonService.saveComparacion(
+//					contenedor.getEvaluacionId(),
+//					contenedor.getTipoComparacion(), primeraPosicion, posicion);
 
-			comparisonService.saveResultado(comparacionId, resultados);
+			//comparisonService.saveResultado(comparacionId, resultados);
 		}
 
 		return containerResult;

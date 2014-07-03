@@ -1,5 +1,9 @@
 package pe.edu.eapisw.codecomparator.service.impl;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -47,12 +51,58 @@ public class ComparisonServiceImpl implements ComparisonService {
 	private Codigo code2 = new Codigo();
 	private Double min = new Double(0);
 
-	@Override
+	/*@Override
 	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
 		evaluaciones.clear();
+		Curso algoritmica = new Curso();
+		algoritmica.setCursoId(1);
+		algoritmica.setGrupo(String.valueOf(2f));
+		algoritmica.setNombre("Algorítmica II");
+
+		Evaluacion eva1 = new Evaluacion();
+		eva1.setN_evaluacion_id(1);
+		;
+		eva1.setCurso(algoritmica.getNombre());
+		List<Evaluacion> evs = new ArrayList<Evaluacion>();
+		evs.add(eva1);
 		Collection<Evaluacion> evaluacionesDocente = evaluacionMapper
 				.getAllEvaluacionesByDocente(docente);
 
+
+		String codigoDocente = "/" + docente.getCodigo();
+		String nombreCurso;
+		String evaluacionId;
+		String srcFilename;
+		for (Evaluacion evaluacion : evaluacionesDocente) {
+			nombreCurso = "/" + evaluacion.getCurso()/* .getNombre() 
+			evaluacionId = "/"
+					+ String.valueOf(evaluacion.getN_evaluacion_id());
+			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
+
+			this.evaluaciones
+					.add((Evaluacion) jsonUtil.toObject(
+							dropboxUploader
+									.download(
+											"Ns9nnNqlFpIAAAAAAAAABan7kFFoWTdnaddpwnxh_8DMeMHrBX1PORlMrPs2qGo6",
+											srcFilename), Evaluacion.class));
+		}
+
+		return evaluaciones;
+	}*/
+	
+	@Override
+	public Collection<Evaluacion> getEvaluaciones(Docente docente) {
+		evaluaciones.clear();
+		/*Collection<Evaluacion> evaluacionesDocente = evaluacionMapper
+				.getAllEvaluacionesByDocente(docente);*/
+		
+		Collection<Evaluacion> evaluacionesDocente = new ArrayList<Evaluacion>();
+
+		Evaluacion eva = new Evaluacion();
+		eva.setCurso("ED 1");
+		eva.setN_evaluacion_id(1);
+		evaluacionesDocente.add(eva);
+		
 		String codigoDocente = "/" + docente.getCodigo();
 		String nombreCurso;
 		String evaluacionId;
@@ -64,11 +114,13 @@ public class ComparisonServiceImpl implements ComparisonService {
 			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
 
 			this.evaluaciones
-					.add((Evaluacion) jsonUtil.toObject(
-							dropboxUploader
-									.download(
-											"Ns9nnNqlFpIAAAAAAAAABan7kFFoWTdnaddpwnxh_8DMeMHrBX1PORlMrPs2qGo6",
-											srcFilename), Evaluacion.class));
+			.add((Evaluacion) jsonUtil.toObject(getEvaluacionJson(), Evaluacion.class));
+//			this.evaluaciones
+//			.add((Evaluacion) jsonUtil.toObject(
+//					dropboxUploader
+//							.download(
+//									"Ns9nnNqlFpIAAAAAAAAABan7kFFoWTdnaddpwnxh_8DMeMHrBX1PORlMrPs2qGo6",
+//									srcFilename), Evaluacion.class));
 		}
 
 		return evaluaciones;
@@ -234,6 +286,29 @@ public class ComparisonServiceImpl implements ComparisonService {
 			resultadoMapper.saveResultado(resultado);
 		}
 	}
+	
+	@SuppressWarnings("unused")
+	private String getEvaluacionJson(){
+		String content = "";
+		String line = "";
+		String p = "C:\\Users\\MaríaAlejandra\\Documents\\codecomparator-server\\src\\main\\java\\pe\\edu\\eapisw\\codecomparator\\controller\\1.json";
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(p));
+			try {
+				while ((line = br.readLine()) != null) {
+					content += line + "\n";
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return content;
+	}
+
 
 	@Override
 	public Collection<Comparacion> getComparaciones(Docente docente) {
