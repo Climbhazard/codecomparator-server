@@ -19,7 +19,6 @@ import pe.edu.eapisw.codecomparator.beans.json.Posicion;
 import pe.edu.eapisw.codecomparator.beans.json.Proyecto;
 import pe.edu.eapisw.codecomparator.beans.model.Comparacion;
 import pe.edu.eapisw.codecomparator.beans.model.ContainerChartResult;
-import pe.edu.eapisw.codecomparator.beans.model.Curso;
 import pe.edu.eapisw.codecomparator.beans.model.Docente;
 import pe.edu.eapisw.codecomparator.beans.model.Resultado;
 import pe.edu.eapisw.codecomparator.persistence.ComparacionMapper;
@@ -66,13 +65,16 @@ public class ComparisonServiceImpl implements ComparisonService {
 		eva1.setCurso(algoritmica.getNombre());
 		List<Evaluacion> evs = new ArrayList<Evaluacion>();
 		evs.add(eva1);
+		Collection<Evaluacion> evaluacionesDocente = evaluacionMapper
+				.getAllEvaluacionesByDocente(docente);
+
 
 		String codigoDocente = "/" + docente.getCodigo();
 		String nombreCurso;
 		String evaluacionId;
 		String srcFilename;
-		for (Evaluacion evaluacion : evs) {
-			nombreCurso = "/" + evaluacion.getCurso();
+		for (Evaluacion evaluacion : evaluacionesDocente) {
+			nombreCurso = "/" + evaluacion.getCurso()/* .getNombre() 
 			evaluacionId = "/"
 					+ String.valueOf(evaluacion.getN_evaluacion_id());
 			srcFilename = codigoDocente + nombreCurso + evaluacionId + ".json";
@@ -305,5 +307,13 @@ public class ComparisonServiceImpl implements ComparisonService {
 			e.printStackTrace();
 		}
 		return content;
+	}
+
+
+	@Override
+	public Collection<Comparacion> getComparaciones(Docente docente) {
+		Collection<Comparacion> comparaciones = new ArrayList<Comparacion>();
+		comparaciones = comparacionMapper.getAllComparacionesByDocente(docente);
+		return null;
 	}
 }

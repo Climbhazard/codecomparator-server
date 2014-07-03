@@ -57,5 +57,3 @@ App.config([ '$routeProvider', function($routeProvider) {
 		redirectTo : '/inicio'
 	});
 } ]);
-
-

@@ -102,6 +102,7 @@ var ComparacionController = function($scope, $http, $location) {
 	$scope.poblarPosiciones = function(evaluacionSeleccionada) {
 		if (!evaluacionSeleccionada) {
 			$scope.borrarPosiciones();
+			$scope.state = 1;
 		}
 		var posiciones = evaluacionSeleccionada.matriz;
 		$scope.i = posiciones[0];

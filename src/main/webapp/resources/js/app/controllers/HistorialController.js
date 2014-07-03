@@ -2,22 +2,23 @@
 
 /**
  * HistorialController
- *
+ * 
  * @constructor
  */
 var HistorialController = function($scope, $http) {
 
-    $scope.datos = {};
-    console.log('historial');
-    
+	$scope.comparaciones = {};
 
-    $scope.validacion = function(){
-        return true;
-    };
+	$scope.fetchComparaciones = function() {
+		$http.get('historial/comparaciones.json').success(function(cmps) {
+			$scope.comparaciones = cmps;
+			console.log($scope.comparaciones);
+		}).error(function() {
+			console.log('Error en el servidor');
+		});
 
-    /*$http.post('login/user.json').success(function(usuario) {
-     $scope.user = usuario;
-     });*/
-
+	};
+	
+	$scope.fetchComparaciones();
 
 };
